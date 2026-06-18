@@ -1,0 +1,204 @@
+---
+layout: default
+title: "Registration"
+description: "Register your athlete for the LATC 2025 Spring Season — process, fees, and frequently asked questions."
+permalink: /registration/
+---
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      Registration
+    </nav>
+    <h1><span class="accent">Register</span> for LATC</h1>
+    <p>Join the Lansing Area Track Club for the {{ site.data.season.year }} season. Registration is open now!</p>
+  </div>
+</section>
+
+<!-- Registration Alert Banner -->
+<div style="background:#76EE00;padding:1rem 1.5rem;text-align:center">
+  <strong style="font-family:Oswald,sans-serif;font-size:1rem;color:#0d1b55;text-transform:uppercase;letter-spacing:0.04em">
+    🚀 Registration Open: {{ site.data.season.registration_open }} – {{ site.data.season.registration_close }}
+  </strong>
+</div>
+
+<!-- How to Register -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>How to Register</h2>
+      <p>Getting your athlete on the LATC team is easy — follow these simple steps.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step__number"></div>
+        <div class="step__content">
+          <h3>Check Eligibility</h3>
+          <p>LATC is open to all athletes in grades K–12 who reside in the greater Lansing area. Athletes should be in good academic standing and able to participate in regular practices.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number"></div>
+        <div class="step__content">
+          <h3>Complete the Registration Form</h3>
+          <p>Fill out the online registration form with your athlete's information, emergency contacts, and event preferences. You'll also need to provide a copy of your athlete's birth certificate and current school ID.</p>
+          <a href="#" class="btn btn--primary">Online Registration Form</a>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number"></div>
+        <div class="step__content">
+          <h3>Submit the Registration Fee</h3>
+          <p>The registration fee covers all practices, uniform, coaching, and meet entry fees for the season. Payment can be made online via credit/debit card or check made out to "Lansing Area Track Club."</p>
+          <div style="background:#f4f7ff;border:1px solid #d0d8f0;border-radius:8px;padding:1rem;margin-top:0.5rem">
+            <strong style="display:block;font-family:Oswald,sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;color:#0d1b55;margin-bottom:0.5rem">Registration Fees</strong>
+            <ul style="margin:0;padding-left:1.25rem">
+              <li>Single Athlete: <strong>$150</strong></li>
+              <li>Family Rate (2+ athletes): <strong>$120 per athlete</strong></li>
+              <li>Financial assistance available — contact us</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number"></div>
+        <div class="step__content">
+          <h3>Return Medical &amp; Waiver Forms</h3>
+          <p>Download and complete the medical history form and liability waiver. Return signed forms to the registration table at the first practice or email a scanned copy to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+          <a href="#" class="btn btn--blue" style="margin-top:0.5rem">Download Forms (PDF)</a>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number"></div>
+        <div class="step__content">
+          <h3>Show Up &amp; Run!</h3>
+          <p>Attend the first practice on <strong>{{ site.data.season.season_start }}</strong> at {{ site.data.season.practice_location }}. Wear comfortable athletic clothing and bring water. Your uniform will be distributed at the first or second practice.</p>
+        </div>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- What's Included -->
+<section class="section section--alt" aria-labelledby="included-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="included-heading">What's Included</h2>
+      <p>Your registration fee covers everything your athlete needs to compete.</p>
+    </div>
+
+    <div class="card-grid card-grid--4">
+      <div class="card text-center">
+        <div class="card__body">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem">👕</div>
+          <h4>Team Uniform</h4>
+          <p>Official LATC uniform (top + shorts) in royal blue and neon green.</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card__body">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem">🏋️</div>
+          <h4>Expert Coaching</h4>
+          <p>Personalized coaching at every practice from our experienced staff.</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card__body">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem">🏟️</div>
+          <h4>Meet Entry</h4>
+          <p>Entry fees for all season meets are covered by your registration.</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card__body">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem">📋</div>
+          <h4>Training Plan</h4>
+          <p>Structured weekly training plans designed for your athlete's development.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+    </div>
+
+    <div style="max-width:750px;margin:0 auto">
+
+      <details class="faq-item">
+        <summary>My child has never done track before. Is LATC right for them?</summary>
+        <div class="faq-answer">
+          Absolutely! LATC welcomes athletes of all experience levels, from complete beginners to experienced competitors. Our coaches specialize in developing young athletes and will work with your child at their current level. Many of our most successful athletes started with no prior experience.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What events can my child compete in?</summary>
+        <div class="faq-answer">
+          Athletes can compete in sprints (100m, 200m, 400m), middle distance (800m, 1600m), long distance (3200m), relays (4×100m, 4×400m), and field events including long jump, high jump, triple jump, and shot put. Discus is available for high school athletes. Coaches will help identify the best events based on your athlete's strengths and interests.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if we can't afford the registration fee?</summary>
+        <div class="faq-answer">
+          We believe every athlete deserves the opportunity to compete. LATC offers a limited number of need-based scholarships and payment plans. Please contact us at <a href="mailto:{{ site.email }}">{{ site.email }}</a> to discuss options — all inquiries are kept confidential.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does my child need spikes or special equipment?</summary>
+        <div class="faq-answer">
+          Regular athletic shoes (sneakers) are perfectly fine, especially for younger or beginner athletes. As athletes advance, track spikes can improve performance, particularly for sprints and jumping events. Coaches can advise on whether spikes make sense for your child's events and level. No other special equipment is required beyond the team uniform.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can my child miss practices or meets?</summary>
+        <div class="faq-answer">
+          We understand that life happens! We ask athletes to make every effort to attend practices and scheduled meets. If your child needs to miss a session, please notify the coach in advance. Consistent attendance is important for athletic development and team cohesion, but we are family-friendly and accommodating.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How can parents get involved?</summary>
+        <div class="faq-answer">
+          Parents are the heart of our club! Volunteer opportunities include meet day setup/cleanup, timing and official roles, providing snacks, and helping with fundraising. Parent volunteers make our home invitational possible. Contact us at <a href="mailto:{{ site.email }}">{{ site.email }}</a> to get involved.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a refund policy?</summary>
+        <div class="faq-answer">
+          Full refunds are available before the season begins (prior to {{ site.data.season.season_start }}). After the season starts, a 50% refund is available within the first two weeks. No refunds after the first two weeks of the season, as uniform orders and meet entries are already placed.
+        </div>
+      </details>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <p>Have more questions? <a href="mailto:{{ site.email }}">Email us</a> — we're happy to help!</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--navy text-center">
+  <div class="container">
+    <h2 style="color:#fff">Ready to Join the Team?</h2>
+    <p style="color:rgba(255,255,255,0.85);max-width:480px;margin:0 auto 1.5rem">Spots are limited — register today to secure your athlete's place on the LATC team!</p>
+    <a href="#" class="btn btn--primary" style="font-size:1rem;padding:0.85rem 2rem">Register Online Now</a>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;margin-top:1rem">
+      Questions? <a href="mailto:{{ site.email }}" style="color:#76EE00">{{ site.email }}</a>
+    </p>
+  </div>
+</section>

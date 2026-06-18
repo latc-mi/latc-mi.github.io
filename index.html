@@ -1,0 +1,189 @@
+---
+layout: default
+title: "Lansing Area Track Club"
+description: "LATC — Track & Field for elementary through high school athletes in Mid-Michigan. Fast. Focused. LATC."
+---
+
+<!-- Hero -->
+<section class="hero" aria-label="Welcome to LATC">
+  <div class="hero-inner">
+    <h1>Run Fast.<br><span class="accent">LATC Strong.</span></h1>
+    <p>Lansing Area Track Club — where Mid-Michigan athletes from elementary through high school discover their speed, build their character, and chase their personal best.</p>
+    <div class="hero-actions">
+      <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary">Register Now</a>
+      <a href="{{ '/season/' | relative_url }}" class="btn btn--outline">{{ site.data.season.name }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar" aria-label="Season highlights">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-number">K–12</span>
+      <span class="stat-label">All Ages Welcome</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">3×</span>
+      <span class="stat-label">Weekly Practices</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">6</span>
+      <span class="stat-label">Meets This Season</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">8</span>
+      <span class="stat-label">Weeks of Training</span>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Info Cards -->
+<section class="section" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="about-heading">Everything You Need to Know</h2>
+      <p>LATC gives young athletes a structured, fun, and competitive track &amp; field experience.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <div class="card__header">
+          <h3>🏃 Season Details</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">📅</span>
+              <div class="info-text">
+                <strong>Season Dates</strong>
+                <span>{{ site.data.season.season_start }} – {{ site.data.season.season_end }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">📍</span>
+              <div class="info-text">
+                <strong>Practice Location</strong>
+                <span>{{ site.data.season.practice_location }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🕓</span>
+              <div class="info-text">
+                <strong>Practice Time</strong>
+                <span>{{ site.data.season.practice_days }}<br>{{ site.data.season.practice_time }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card__footer">
+          <a href="{{ '/season/' | relative_url }}" class="btn btn--blue">Full Season Info</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--green">
+          <h3>📋 Registration</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🎯</span>
+              <div class="info-text">
+                <strong>Who Can Join</strong>
+                <span>All K–12 athletes in Mid-Michigan</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">📝</span>
+              <div class="info-text">
+                <strong>Registration Opens</strong>
+                <span>{{ site.data.season.registration_open }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">⏰</span>
+              <div class="info-text">
+                <strong>Registration Closes</strong>
+                <span>{{ site.data.season.registration_close }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card__footer">
+          <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary">Register Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--navy">
+          <h3>🏆 Track Meets</h3>
+        </div>
+        <div class="card__body">
+          <p>This season features <strong>{{ site.data.meets.size }} meets</strong>, including invitationals, dual meets, and championship events culminating in the State Championships.</p>
+          <p>Check the meet schedule for dates, locations, and event lists.</p>
+        </div>
+        <div class="card__footer">
+          <a href="{{ '/meets/' | relative_url }}" class="btn btn--blue">Meet Schedule</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Age Groups -->
+<section class="section section--alt" aria-labelledby="age-groups-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="age-groups-heading">Who We Are</h2>
+      <p>LATC is open to all grade levels — from Kindergarten all the way through 12th grade.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      {% for group in site.data.season.age_groups %}
+      <div class="card">
+        <div class="card__header">
+          <h3>{{ group.name }}</h3>
+        </div>
+        <div class="card__body">
+          <p><strong>Grades:</strong> {{ group.grades }}</p>
+          <p><strong>Ages:</strong> {{ group.ages }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Coaching Staff -->
+<section class="section" aria-labelledby="coaches-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="coaches-heading">Our Coaches</h2>
+      <p>Experienced coaches dedicated to helping every athlete reach their potential.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      {% for coach in site.data.season.coaching_staff %}
+      <div class="card">
+        <div class="card__header">
+          <h3>{{ coach.name }}</h3>
+        </div>
+        <div class="card__body">
+          <p><strong>Role:</strong> {{ coach.role }}</p>
+          <p><strong>Specialty:</strong> {{ coach.specialty }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section section--navy" aria-labelledby="cta-heading">
+  <div class="container text-center">
+    <h2 id="cta-heading" style="color:#fff">Ready to Run with LATC?</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:500px;margin:0 auto 2rem">Don't miss your spot on the team — registration spots are limited!</p>
+    <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary" style="font-size:1rem;padding:0.85rem 2rem">Get Registered Today</a>
+  </div>
+</section>

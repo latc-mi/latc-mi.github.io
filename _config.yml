@@ -1,0 +1,43 @@
+title: "LATC - Lansing Area Track Club"
+description: "Lansing Area Track Club — Track & Field for Elementary through High School Athletes in Mid-Michigan"
+url: "https://latc-mi.github.io"
+baseurl: ""
+email: "info@latc-mi.org"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Sass settings
+sass:
+  style: compressed
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Season"
+    url: "/season/"
+  - title: "Track Meets"
+    url: "/meets/"
+  - title: "Registration"
+    url: "/registration/"
+  - title: "Training Plans"
+    url: "/training/"
+
+# Season info
+current_season: "2025 Spring Season"
+season_year: 2025
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - LICENSE

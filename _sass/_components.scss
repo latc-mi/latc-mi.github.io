@@ -1,0 +1,1419 @@
+// =====================
+// Site Header
+// =====================
+.site-header {
+  background: $navy;
+  border-bottom: 4px solid $neon-green;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $header-height;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    background: $royal-blue;
+    border: 3px solid $neon-green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    span {
+      font-family: $font-heading;
+      font-weight: 900;
+      font-size: 1rem;
+      color: $neon-green;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    .brand-name {
+      font-family: $font-heading;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-tagline {
+      font-size: 0.65rem;
+      color: $neon-green;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+  }
+
+  &:hover .brand-name {
+    color: $neon-green;
+  }
+}
+
+// =====================
+// Navigation
+// =====================
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  a {
+    font-family: $font-heading;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.4rem 0.8rem;
+    border-radius: $border-radius;
+    transition: all 0.2s ease;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: $neon-green;
+      background: rgba(255,255,255,0.08);
+    }
+  }
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: $border-radius;
+  color: $white;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.2rem;
+  line-height: 1;
+
+  &:hover {
+    border-color: $neon-green;
+    color: $neon-green;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: $header-height;
+    left: 0;
+    right: 0;
+    background: $navy;
+    border-top: 2px solid $neon-green;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+
+    &.is-open {
+      display: flex;
+    }
+
+    a {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+    }
+  }
+}
+
+// =====================
+// Page Content Wrapper
+// =====================
+.page-content {
+  min-height: calc(100vh - #{$header-height} - 120px);
+}
+
+.container {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+// =====================
+// Hero Section
+// =====================
+.hero {
+  background: linear-gradient(135deg, $navy 0%, $royal-blue 60%, $royal-blue-dark 100%);
+  color: $white;
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, $neon-green, $royal-blue-light, $neon-green);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: $neon-green;
+  }
+
+  .hero-inner {
+    max-width: $content-width;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    color: $white;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+
+    .accent {
+      color: $neon-green;
+    }
+  }
+
+  p {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.2rem;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 1.5rem 2.5rem;
+
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+// =====================
+// Buttons
+// =====================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.65rem 1.5rem;
+  border-radius: $border-radius;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    background: $neon-green;
+    color: $navy;
+    border-color: $neon-green;
+
+    &:hover {
+      background: $neon-green-light;
+      border-color: $neon-green-light;
+      color: $navy;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: $white;
+    border-color: $white;
+
+    &:hover {
+      background: $white;
+      color: $navy;
+    }
+  }
+
+  &--blue {
+    background: $royal-blue;
+    color: $white;
+    border-color: $royal-blue;
+
+    &:hover {
+      background: $royal-blue-dark;
+      border-color: $royal-blue-dark;
+      color: $white;
+    }
+  }
+}
+
+// =====================
+// Page Hero (inner pages)
+// =====================
+.page-hero {
+  background: linear-gradient(135deg, $navy 0%, $royal-blue 100%);
+  color: $white;
+  padding: 3rem 1.5rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $neon-green;
+  }
+
+  .page-hero-inner {
+    max-width: $content-width;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: $white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+
+    .accent {
+      color: $neon-green;
+    }
+  }
+
+  p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.75rem;
+    font-family: $font-heading;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    a {
+      color: $neon-green;
+
+      &:hover {
+        color: $neon-green-light;
+      }
+    }
+
+    span {
+      margin: 0 0.4rem;
+    }
+  }
+}
+
+// =====================
+// Section Styles
+// =====================
+.section {
+  padding: 4rem 1.5rem;
+
+  &--alt {
+    background: $off-white;
+  }
+
+  &--blue {
+    background: $royal-blue;
+    color: $white;
+
+    h2, h3 {
+      color: $white;
+    }
+
+    p {
+      color: rgba(255,255,255,0.9);
+    }
+  }
+
+  &--navy {
+    background: $navy;
+    color: $white;
+
+    h2, h3 {
+      color: $white;
+    }
+
+    p {
+      color: rgba(255,255,255,0.88);
+    }
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: $neon-green;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// =====================
+// Cards
+// =====================
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: $content-width;
+  margin: 0 auto;
+
+  &--2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  &--3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  &--4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+
+.card {
+  background: $white;
+  border-radius: $border-radius * 2;
+  border: 1px solid $border-light;
+  box-shadow: 0 2px 8px $shadow;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px $shadow;
+  }
+
+  &__header {
+    background: $royal-blue;
+    color: $white;
+    padding: 1rem 1.25rem;
+    border-bottom: 3px solid $neon-green;
+
+    h3, h4 {
+      color: $white;
+      margin: 0;
+    }
+
+    &--green {
+      background: $neon-green;
+
+      h3, h4 {
+        color: $navy;
+      }
+    }
+
+    &--navy {
+      background: $navy;
+    }
+  }
+
+  &__body {
+    padding: 1.25rem;
+  }
+
+  &__footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid $border-light;
+    background: $off-white;
+  }
+}
+
+// =====================
+// Stats Bar
+// =====================
+.stats-bar {
+  background: $neon-green;
+  padding: 1.5rem;
+
+  .stats-inner {
+    max-width: $content-width;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+
+    .stat-number {
+      font-family: $font-heading;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: $navy;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: $navy;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      opacity: 0.8;
+    }
+  }
+}
+
+// =====================
+// Info List
+// =====================
+.info-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $border-light;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .info-icon {
+      font-size: 1.25rem;
+      min-width: 1.5rem;
+      text-align: center;
+      margin-top: 0.1rem;
+    }
+
+    .info-text {
+      strong {
+        display: block;
+        color: $text-dark;
+      }
+
+      span {
+        font-size: 0.9rem;
+        color: $text-mid;
+      }
+    }
+  }
+}
+
+// =====================
+// Badges / Labels
+// =====================
+.badge {
+  display: inline-block;
+  font-family: $font-heading;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+
+  &--blue {
+    background: $light-blue;
+    color: $royal-blue-dark;
+  }
+
+  &--green {
+    background: rgba(118, 238, 0, 0.15);
+    color: darken($neon-green, 30%);
+  }
+
+  &--navy {
+    background: $navy;
+    color: $white;
+  }
+
+  &--host {
+    background: $neon-green;
+    color: $navy;
+  }
+
+  &--championship {
+    background: #FFD700;
+    color: $navy;
+  }
+}
+
+// =====================
+// Intensity Badge
+// =====================
+.intensity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  &--easy {
+    color: darken($intensity-easy, 10%);
+    &::before { background: $intensity-easy; }
+  }
+
+  &--moderate, &--easy-moderate, &--moderate-hard {
+    color: darken($intensity-moderate, 15%);
+    &::before { background: $intensity-moderate; }
+  }
+
+  &--hard {
+    color: darken($intensity-hard, 10%);
+    &::before { background: $intensity-hard; }
+  }
+
+  &--rest {
+    color: $intensity-rest;
+    &::before { background: $intensity-rest; }
+  }
+}
+
+// =====================
+// Meet Cards
+// =====================
+.meet-card {
+  background: $white;
+  border-radius: $border-radius * 2;
+  border: 1px solid $border-light;
+  box-shadow: 0 2px 8px $shadow;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+
+  &__date-strip {
+    background: $royal-blue;
+    color: $white;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid $neon-green;
+
+    .meet-date {
+      font-family: $font-heading;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__body {
+    padding: 1.25rem;
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    color: $navy;
+    margin-bottom: 0.5rem;
+  }
+
+  &__location {
+    font-size: 0.9rem;
+    color: $text-light;
+    margin-bottom: 0.75rem;
+
+    .emoji {
+      margin-right: 0.25rem;
+    }
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: $text-mid;
+    margin-bottom: 1rem;
+  }
+
+  &__events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+
+    .event-tag {
+      font-size: 0.75rem;
+      background: $light-blue;
+      color: $royal-blue-dark;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+  }
+}
+
+// =====================
+// Training List View
+// =====================
+.training-week {
+  margin-bottom: 2.5rem;
+  border: 1px solid $border-light;
+  border-radius: $border-radius * 2;
+  overflow: hidden;
+  box-shadow: 0 2px 8px $shadow;
+
+  &__header {
+    background: linear-gradient(135deg, $navy, $royal-blue);
+    color: $white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 3px solid $neon-green;
+
+    h3 {
+      color: $white;
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .week-dates {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      font-family: $font-heading;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .week-theme {
+      width: 100%;
+      font-size: 0.9rem;
+      color: $neon-green;
+      font-style: italic;
+      font-weight: 600;
+    }
+  }
+
+  &__days {
+    background: $white;
+  }
+}
+
+.training-day {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 0;
+  border-bottom: 1px solid $border-light;
+  transition: background 0.15s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $off-white;
+  }
+
+  &__label {
+    padding: 1rem 1rem;
+    background: $light-blue;
+    border-right: 3px solid $border-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .day-name {
+      font-family: $font-heading;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: $navy;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .day-date {
+      font-size: 0.75rem;
+      color: $text-light;
+    }
+  }
+
+  &__details {
+    padding: 1rem 1.25rem;
+
+    .day-title {
+      font-family: $font-heading;
+      font-size: 1rem;
+      color: $navy;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .day-workout {
+      font-size: 0.9rem;
+      color: $text-mid;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .day-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 0.8rem;
+      color: $text-light;
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+  }
+
+  &__intensity {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--rest {
+    .training-day__label {
+      background: #f5f5f5;
+    }
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+
+    &__label {
+      border-right: none;
+      border-bottom: 1px solid $border-light;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+
+    &__intensity {
+      border-top: 1px solid $border-light;
+      justify-content: flex-start;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+// =====================
+// Calendar View
+// =====================
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .cal-nav-btn {
+    background: $royal-blue;
+    color: $white;
+    border: none;
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: $font-heading;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $royal-blue-dark;
+    }
+  }
+
+  .cal-month-label {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $navy;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 220px;
+    text-align: center;
+  }
+}
+
+.calendar-grid {
+  border: 1px solid $border-light;
+  border-radius: $border-radius * 2;
+  overflow: hidden;
+  box-shadow: 0 2px 8px $shadow;
+}
+
+.cal-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: $navy;
+  border-bottom: 3px solid $neon-green;
+
+  .cal-day-name {
+    font-family: $font-heading;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $white;
+    text-align: center;
+    padding: 0.65rem 0.25rem;
+  }
+}
+
+.cal-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: $white;
+}
+
+.cal-cell {
+  min-height: 90px;
+  border-right: 1px solid $border-light;
+  border-bottom: 1px solid $border-light;
+  padding: 0.4rem;
+  position: relative;
+  vertical-align: top;
+  cursor: default;
+
+  &:nth-child(7n) {
+    border-right: none;
+  }
+
+  .cal-date {
+    font-family: $font-heading;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: $text-light;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  &--empty {
+    background: $off-white;
+    .cal-date { color: transparent; }
+  }
+
+  &--today .cal-date {
+    background: $royal-blue;
+    color: $white;
+  }
+
+  &--has-event {
+    cursor: pointer;
+    transition: background 0.15s;
+
+    &:hover {
+      background: $light-blue;
+    }
+  }
+}
+
+.cal-event-pill {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: $font-heading;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  margin-bottom: 0.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+
+  &--easy {
+    background: rgba(76, 175, 80, 0.15);
+    color: darken($intensity-easy, 15%);
+    border-left: 3px solid $intensity-easy;
+  }
+
+  &--moderate {
+    background: rgba(255, 152, 0, 0.15);
+    color: darken($intensity-moderate, 20%);
+    border-left: 3px solid $intensity-moderate;
+  }
+
+  &--hard {
+    background: rgba(244, 67, 54, 0.1);
+    color: darken($intensity-hard, 10%);
+    border-left: 3px solid $intensity-hard;
+  }
+
+  &--rest {
+    background: rgba(158, 158, 158, 0.1);
+    color: $intensity-rest;
+    border-left: 3px solid $intensity-rest;
+  }
+
+  &--meet {
+    background: rgba(255, 215, 0, 0.2);
+    color: #7a6000;
+    border-left: 3px solid #FFD700;
+  }
+}
+
+// Calendar event detail modal
+.cal-detail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &.is-open {
+    display: flex;
+  }
+
+  &__box {
+    background: $white;
+    border-radius: $border-radius * 2;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  &__header {
+    background: linear-gradient(135deg, $navy, $royal-blue);
+    color: $white;
+    padding: 1rem 1.5rem;
+    border-bottom: 3px solid $neon-green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      color: $white;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+  }
+
+  &__footer {
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid $border-light;
+    background: $off-white;
+    text-align: right;
+
+    button {
+      font-family: $font-heading;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: $royal-blue;
+      color: $white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: $border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background: $royal-blue-dark;
+      }
+    }
+  }
+}
+
+// =====================
+// View Toggle
+// =====================
+.view-toggle {
+  display: flex;
+  gap: 0;
+  border: 2px solid $royal-blue;
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+
+  button {
+    font-family: $font-heading;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: $white;
+    color: $royal-blue;
+
+    &.is-active {
+      background: $royal-blue;
+      color: $white;
+    }
+
+    &:hover:not(.is-active) {
+      background: $light-blue;
+    }
+  }
+}
+
+// =====================
+// Registration Steps
+// =====================
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.step {
+  counter-increment: step;
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  &__number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $royal-blue;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-top: 0.1rem;
+
+    &::after {
+      content: counter(step);
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// =====================
+// FAQ Accordion
+// =====================
+.faq-item {
+  border: 1px solid $border-light;
+  border-radius: $border-radius;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+
+  summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-family: $font-heading;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $navy;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.15s;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: $royal-blue;
+      line-height: 1;
+    }
+
+    &:hover {
+      background: $light-blue;
+    }
+  }
+
+  &[open] summary::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    padding: 0.75rem 1.25rem 1rem;
+    border-top: 1px solid $border-light;
+    background: $off-white;
+    font-size: 0.95rem;
+    color: $text-mid;
+    line-height: 1.6;
+  }
+}
+
+// =====================
+// Site Footer
+// =====================
+.site-footer {
+  background: $navy;
+  color: rgba(255,255,255,0.8);
+  padding: 2.5rem 1.5rem 1.5rem;
+  border-top: 4px solid $neon-green;
+  margin-top: 0;
+
+  .footer-inner {
+    max-width: $content-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand {
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+        background: $royal-blue;
+        border: 2px solid $neon-green;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        span {
+          font-family: $font-heading;
+          font-weight: 900;
+          font-size: 0.8rem;
+          color: $neon-green;
+          letter-spacing: -0.05em;
+        }
+      }
+
+      .brand-name {
+        font-family: $font-heading;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-section {
+    h4 {
+      font-family: $font-heading;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $neon-green;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.4rem;
+      }
+
+      a {
+        color: rgba(255,255,255,0.7);
+        font-size: 0.875rem;
+        text-decoration: none;
+
+        &:hover {
+          color: $white;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+}
+
+// =====================
+// Responsive helpers
+// =====================
+@media (max-width: $bp-md) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .cal-cell {
+    min-height: 60px;
+
+    .cal-date {
+      width: 22px;
+      height: 22px;
+      font-size: 0.75rem;
+    }
+  }
+
+  .cal-event-pill {
+    font-size: 0.6rem;
+  }
+
+  .cal-day-name {
+    font-size: 0.65rem !important;
+    padding: 0.4rem 0 !important;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .view-toggle {
+    width: 100%;
+
+    button {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

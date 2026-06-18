@@ -1,0 +1,227 @@
+---
+layout: default
+title: "2025 Spring Season"
+description: "Details about the LATC 2025 Spring Season — schedule, coaching staff, age groups, and season highlights."
+permalink: /season/
+hero_title: "2025 Spring Season"
+hero_subtitle: "Everything you need to know about this year's track & field season."
+breadcrumb: "Season"
+---
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      Season
+    </nav>
+    <h1>{{ site.data.season.name }} <span class="accent">Season</span></h1>
+    <p>Everything you need to know about the {{ site.data.season.year }} LATC track &amp; field season.</p>
+  </div>
+</section>
+
+<!-- Season Overview -->
+<section class="section">
+  <div class="container">
+    <div class="card-grid card-grid--2">
+
+      <div class="card">
+        <div class="card__header">
+          <h3>📅 Season Schedule</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🗓️</span>
+              <div class="info-text">
+                <strong>Season Start</strong>
+                <span>{{ site.data.season.season_start }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🏁</span>
+              <div class="info-text">
+                <strong>Season End</strong>
+                <span>{{ site.data.season.season_end }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">📝</span>
+              <div class="info-text">
+                <strong>Registration Open</strong>
+                <span>{{ site.data.season.registration_open }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">⏰</span>
+              <div class="info-text">
+                <strong>Registration Deadline</strong>
+                <span>{{ site.data.season.registration_close }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <h3>📍 Practice Information</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🕓</span>
+              <div class="info-text">
+                <strong>Practice Days</strong>
+                <span>{{ site.data.season.practice_days }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">⏱️</span>
+              <div class="info-text">
+                <strong>Practice Time</strong>
+                <span>{{ site.data.season.practice_time }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">📍</span>
+              <div class="info-text">
+                <strong>Location</strong>
+                <span>{{ site.data.season.practice_location }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🗺️</span>
+              <div class="info-text">
+                <strong>Address</strong>
+                <span>{{ site.data.season.practice_address }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Age Groups -->
+<section class="section section--alt" aria-labelledby="age-groups-season-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="age-groups-season-heading">Age Groups</h2>
+      <p>LATC welcomes all athletes from Kindergarten through 12th grade.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      {% for group in site.data.season.age_groups %}
+      <div class="card">
+        <div class="card__header">
+          <h3>{{ group.name }}</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🎓</span>
+              <div class="info-text">
+                <strong>Grades</strong>
+                <span>{{ group.grades }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🎂</span>
+              <div class="info-text">
+                <strong>Ages</strong>
+                <span>{{ group.ages }} years old</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Coaching Staff -->
+<section class="section" aria-labelledby="staff-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="staff-heading">Coaching Staff</h2>
+      <p>Our dedicated coaching staff brings expertise in all areas of track &amp; field.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      {% for coach in site.data.season.coaching_staff %}
+      <div class="card">
+        <div class="card__header">
+          <h3>{{ coach.name }}</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🏅</span>
+              <div class="info-text">
+                <strong>Role</strong>
+                <span>{{ coach.role }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">⚡</span>
+              <div class="info-text">
+                <strong>Specialty</strong>
+                <span>{{ coach.specialty }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Season Highlights -->
+<section class="section section--blue" aria-labelledby="highlights-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="highlights-heading" style="color:#fff">Season Highlights</h2>
+      <p>Recent achievements that show what LATC athletes can accomplish.</p>
+    </div>
+
+    <div style="max-width:600px;margin:0 auto">
+      {% for highlight in site.data.season.highlights %}
+      <div style="display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem;background:rgba(255,255,255,0.1);border-radius:8px;padding:1rem;border-left:4px solid #76EE00">
+        <span style="font-size:1.4rem">🏆</span>
+        <span style="color:#fff;font-size:1rem">{{ highlight }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Milestones -->
+<section class="section" aria-labelledby="milestones-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="milestones-heading">Key Dates This Season</h2>
+      <p>Mark your calendars for these important upcoming events.</p>
+    </div>
+
+    <div style="max-width:600px;margin:0 auto">
+      {% for milestone in site.data.season.upcoming_milestones %}
+      <div style="display:flex;align-items:center;gap:1.25rem;padding:1rem;border:1px solid #d0d8f0;border-radius:8px;margin-bottom:0.75rem;background:#f4f7ff">
+        <div style="text-align:center;min-width:80px;background:#2952CC;color:#fff;border-radius:6px;padding:0.5rem;border-bottom:3px solid #76EE00">
+          <span style="font-family:Oswald,sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em">{{ milestone.date | date: "%b %-d" }}</span>
+        </div>
+        <span style="font-size:1rem;font-weight:600;color:#0d1b55;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:0.03em">{{ milestone.event }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{{ '/meets/' | relative_url }}" class="btn btn--blue">Full Meet Schedule</a>
+      <a href="{{ '/training/' | relative_url }}" class="btn btn--primary" style="margin-left:0.75rem">Training Plans</a>
+    </div>
+  </div>
+</section>
