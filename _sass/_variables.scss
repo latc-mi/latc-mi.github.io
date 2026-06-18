@@ -1,0 +1,35 @@
+// LATC Color Palette
+$royal-blue:      #2952CC;
+$royal-blue-dark: #1a3a99;
+$royal-blue-light:#4a72e8;
+$neon-green:      #76EE00;
+$neon-green-light:#9fff33;
+$navy:            #0d1b55;
+$white:           #ffffff;
+$off-white:       #f4f7ff;
+$light-blue:      #e8eeff;
+$text-dark:       #1a1a2e;
+$text-mid:        #3a3a5c;
+$text-light:      #6b6b8a;
+$border-light:    #d0d8f0;
+$shadow:          rgba(41, 82, 204, 0.12);
+
+// Typography
+$font-heading:    'Oswald', 'Arial Narrow', Arial, sans-serif;
+$font-body:       'Roboto', 'Segoe UI', system-ui, sans-serif;
+
+// Sizes
+$header-height:   72px;
+$content-width:   1100px;
+$border-radius:   6px;
+
+// Intensity colors for training plans
+$intensity-easy:    #4CAF50;
+$intensity-moderate:#FF9800;
+$intensity-hard:    #F44336;
+$intensity-rest:    #9E9E9E;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 1024px;

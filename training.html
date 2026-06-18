@@ -1,0 +1,232 @@
+---
+layout: default
+title: "Training Plans"
+description: "LATC weekly training plans for the 2025 season — view as a list or an interactive calendar."
+permalink: /training/
+---
+
+<!-- Embed data as JSON for JavaScript calendar -->
+<script id="training-plans-data" type="application/json">
+{{ site.data.training_plans | jsonify }}
+</script>
+<script id="meets-data" type="application/json">
+{{ site.data.meets | jsonify }}
+</script>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      Training Plans
+    </nav>
+    <h1>Training <span class="accent">Plans</span></h1>
+    <p>{{ site.data.season.year }} season training schedule — structured weekly workouts designed for every age group.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- View Toggle -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+      <div>
+        <h2 style="margin:0;font-size:1.5rem">{{ site.data.season.name }}</h2>
+        <p style="margin:0;font-size:0.9rem;color:#6b6b8a">{{ site.data.season.practice_days }} &bull; {{ site.data.season.practice_time }}</p>
+      </div>
+
+      <div class="view-toggle" role="group" aria-label="Training view options">
+        <button id="view-list-btn" class="is-active" aria-pressed="true">
+          ☰ List View
+        </button>
+        <button id="view-cal-btn" aria-pressed="false">
+          📅 Calendar View
+        </button>
+      </div>
+    </div>
+
+    <!-- Intensity Legend -->
+    <div style="display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:2rem;padding:0.75rem 1rem;background:#f4f7ff;border-radius:8px;border:1px solid #d0d8f0">
+      <span style="font-family:Oswald,sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#6b6b8a">Intensity:</span>
+      <span class="intensity intensity--easy">Easy</span>
+      <span class="intensity intensity--moderate">Moderate</span>
+      <span class="intensity intensity--hard">Hard</span>
+      <span class="intensity intensity--rest">Rest</span>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LIST VIEW -->
+    <!-- ════════════════════════════════════════ -->
+    <div id="training-list-view">
+      {% for week in site.data.training_plans %}
+      <div class="training-week">
+        <div class="training-week__header">
+          <h3>Week {{ week.week }}</h3>
+          <span class="week-dates">{{ week.start_date | date: "%b %-d" }} – {{ week.end_date | date: "%b %-d, %Y" }}</span>
+          <span class="week-theme">{{ week.theme }}</span>
+        </div>
+
+        <div class="training-week__days">
+          {% for day in week.days %}
+          {% assign ic = day.intensity | downcase | replace: "–", "-" | replace: " ", "-" %}
+          {% if ic contains "rest" %}{% assign ic = "rest" %}
+          {% elsif ic contains "hard" %}{% assign ic = "hard" %}
+          {% elsif ic contains "moderate" %}{% assign ic = "moderate" %}
+          {% else %}{% assign ic = "easy" %}{% endif %}
+
+          <div class="training-day{% if ic == 'rest' %} training-day--rest{% endif %}">
+            <div class="training-day__label">
+              <span class="day-name">{{ day.day }}</span>
+              <span class="day-date">{{ day.date | date: "%b %-d" }}</span>
+            </div>
+            <div class="training-day__details">
+              <div class="day-title">{{ day.title }}</div>
+              <div class="day-workout">{{ day.workout }}</div>
+              <div class="day-meta">
+                {% if day.distance and day.distance != "0" %}
+                <span class="meta-item">📏 {{ day.distance }}</span>
+                {% endif %}
+                {% if day.focus %}
+                <span class="meta-item">🎯 {{ day.focus }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="training-day__intensity">
+              <span class="intensity intensity--{{ ic }}">{{ day.intensity }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- CALENDAR VIEW -->
+    <!-- ════════════════════════════════════════ -->
+    <div id="training-cal-view" hidden>
+
+      <!-- Calendar Navigation -->
+      <div class="calendar-controls">
+        <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
+        <span class="cal-month-label" id="cal-month-label" aria-live="polite">March 2025</span>
+        <button class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8594;</button>
+      </div>
+
+      <!-- Calendar Grid -->
+      <div class="calendar-grid" role="grid" aria-label="Training calendar">
+        <!-- Day name headers -->
+        <div class="cal-header" role="row">
+          <div class="cal-day-name" role="columnheader">Sun</div>
+          <div class="cal-day-name" role="columnheader">Mon</div>
+          <div class="cal-day-name" role="columnheader">Tue</div>
+          <div class="cal-day-name" role="columnheader">Wed</div>
+          <div class="cal-day-name" role="columnheader">Thu</div>
+          <div class="cal-day-name" role="columnheader">Fri</div>
+          <div class="cal-day-name" role="columnheader">Sat</div>
+        </div>
+        <!-- Calendar body populated by JS -->
+        <div class="cal-body" id="cal-body" role="rowgroup">
+          <!-- Filled by calendar.js -->
+        </div>
+      </div>
+
+      <!-- Calendar Meet Legend -->
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1rem;padding:0.75rem 1rem;background:#f4f7ff;border-radius:8px;border:1px solid #d0d8f0;font-size:0.85rem">
+        <span style="font-family:Oswald,sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#6b6b8a">Calendar Key:</span>
+        <span class="cal-event-pill cal-event-pill--easy" style="display:inline-block">Easy Training</span>
+        <span class="cal-event-pill cal-event-pill--moderate" style="display:inline-block">Moderate Training</span>
+        <span class="cal-event-pill cal-event-pill--hard" style="display:inline-block">Hard Training</span>
+        <span class="cal-event-pill cal-event-pill--rest" style="display:inline-block">Rest Day</span>
+        <span class="cal-event-pill cal-event-pill--meet" style="display:inline-block">🏃 Meet</span>
+      </div>
+
+      <p style="margin-top:0.75rem;font-size:0.875rem;color:#6b6b8a;text-align:center">
+        💡 Click any highlighted day to see workout details.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- General Training Tips -->
+<section class="section section--alt" aria-labelledby="tips-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="tips-heading">Training Tips</h2>
+      <p>Advice from the coaching staff to help every athlete perform their best.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <div class="card__header">
+          <h3>💧 Stay Hydrated</h3>
+        </div>
+        <div class="card__body">
+          <p>Drink water throughout the day — not just during practice. Bring a water bottle to every session and aim for at least 8 glasses per day. On hot days, increase your intake.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--green">
+          <h3>😴 Prioritize Sleep</h3>
+        </div>
+        <div class="card__body">
+          <p>Athletes need 8–10 hours of sleep per night. Sleep is when your body actually improves — muscle repair, memory consolidation, and growth happen during rest.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--navy">
+          <h3>🥗 Fuel Right</h3>
+        </div>
+        <div class="card__body">
+          <p>Eat a balanced meal 2–3 hours before practice. Include carbohydrates for energy, protein for muscle repair, and plenty of fruits and vegetables for vitamins.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <h3>🧘 Warm Up &amp; Cool Down</h3>
+        </div>
+        <div class="card__body">
+          <p>Never skip your warm-up or cool-down. Dynamic warm-ups prepare your muscles and reduce injury risk. Cool-down stretching prevents soreness and improves flexibility.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--green">
+          <h3>🧠 Mental Preparation</h3>
+        </div>
+        <div class="card__body">
+          <p>Visualize your race before meets. Practice positive self-talk and focus on what you can control. A strong mental approach is just as important as physical training.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header card__header--navy">
+          <h3>🩹 Listen to Your Body</h3>
+        </div>
+        <div class="card__body">
+          <p>There's a difference between normal workout soreness and pain from injury. If something hurts, tell a coach immediately. It's always better to rest a day than to miss weeks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Event Detail Modal -->
+<div class="cal-detail" id="cal-detail" role="dialog" aria-modal="true" aria-labelledby="cal-detail-title">
+  <div class="cal-detail__box">
+    <div class="cal-detail__header">
+      <h3 id="cal-detail-title">Training Day</h3>
+      <button id="cal-detail-close" aria-label="Close detail">&times;</button>
+    </div>
+    <div class="cal-detail__body" id="cal-detail-body">
+      <!-- Populated by JS -->
+    </div>
+    <div class="cal-detail__footer">
+      <button id="cal-detail-close-footer">Close</button>
+    </div>
+  </div>
+</div>

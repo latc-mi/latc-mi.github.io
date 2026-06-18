@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    {% if page.breadcrumb %}
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      {{ page.breadcrumb }}
+    </nav>
+    {% endif %}
+    <h1>{% if page.hero_title %}{{ page.hero_title }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% if page.hero_subtitle %}<p>{{ page.hero_subtitle }}</p>{% endif %}
+  </div>
+</section>
+
+<div class="section">
+  <div class="container">
+    {{ content }}
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="logo-mark" aria-hidden="true">
+          <span>LATC</span>
+        </div>
+        <span class="brand-name">Lansing Area Track Club</span>
+      </div>
+      <p>Empowering elementary through high school athletes in Mid-Michigan through track &amp; field.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        {% for item in site.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Season Info</h4>
+      <ul>
+        <li>Practice: {{ site.data.season.practice_days }}</li>
+        <li>Time: {{ site.data.season.practice_time }}</li>
+        <li>Season: {{ site.data.season.season_start }}</li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li>{{ site.data.season.practice_location }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; {{ 'now' | date: "%Y" }} Lansing Area Track Club. All rights reserved.</span>
+    <span>Built with ❤️ for LATC athletes</span>
+  </div>
+</footer>
