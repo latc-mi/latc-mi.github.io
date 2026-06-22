@@ -206,6 +206,54 @@
     document.body.style.overflow = '';
   }
 
+  // ─── List View: hide past weeks ──────────────────────────────────────────
+
+  // Hides weeks that have already ended and inserts a toggle to reveal them.
+  function setupListPastToggle() {
+    const listView = document.getElementById('training-list-view');
+    if (!listView) return;
+
+    const weeks = Array.prototype.slice.call(
+      listView.querySelectorAll('.training-week')
+    );
+    if (!weeks.length) return;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const pastWeeks = weeks.filter(function (w) {
+      const end = w.getAttribute('data-end-date');
+      if (!end) return false;
+      return parseDate(end) < today;
+    });
+
+    if (!pastWeeks.length) return; // nothing in the past — no toggle needed
+
+    pastWeeks.forEach(function (w) { w.hidden = true; });
+
+    let expanded = false;
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'past-weeks-toggle';
+
+    function update() {
+      const n = pastWeeks.length;
+      toggle.textContent = expanded
+        ? '▾ Hide previous weeks'
+        : '▸ Show ' + n + ' previous week' + (n === 1 ? '' : 's');
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    toggle.addEventListener('click', function () {
+      expanded = !expanded;
+      pastWeeks.forEach(function (w) { w.hidden = !expanded; });
+      update();
+    });
+
+    update();
+    listView.insertBefore(toggle, listView.firstChild);
+  }
+
   // ─── View Toggle ─────────────────────────────────────────────────────────
 
   function setupViewToggle() {
@@ -259,11 +307,14 @@
       try { meetData = JSON.parse(meetJson.textContent); } catch (e) { meetData = []; }
     }
 
-    // Set calendar to first training month if available
-    if (trainingData.length && trainingData[0].start_date) {
-      const firstDate = parseDate(trainingData[0].start_date);
-      currentDate = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1);
-    }
+    // Default the calendar to the current month. Past months stay reachable
+    // via the ← previous-month arrow, so old training dates are hidden by
+    // default but never lost.
+    const now = new Date();
+    currentDate = new Date(now.getFullYear(), now.getMonth(), 1);
+
+    // Hide past weeks in the list view behind a "Show previous weeks" toggle.
+    setupListPastToggle();
 
     // Calendar navigation
     const prevBtn = document.getElementById('cal-prev');

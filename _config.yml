@@ -31,8 +31,7 @@ navigation:
     url: "/training/"
 
 # Season info
-current_season: "2025 Spring Season"
-season_year: 2025
+current_season: "Summer Track Season"
 
 # Exclude from build
 exclude:
@@ -41,3 +40,4 @@ exclude:
   - vendor
   - README.md
   - LICENSE
+  - docs

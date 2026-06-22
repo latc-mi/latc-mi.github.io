@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "2025 Spring Season"
-description: "Details about the LATC 2025 Spring Season — schedule, coaching staff, age groups, and season highlights."
+title: "Summer Track Season"
+description: "Details about the LATC Summer Track Season — schedule, coaching staff, age groups, and season highlights."
 permalink: /season/
-hero_title: "2025 Spring Season"
-hero_subtitle: "Everything you need to know about this year's track & field season."
+hero_title: "Summer Track Season"
+hero_subtitle: "Everything you need to know about our track & field season."
 breadcrumb: "Season"
 ---
 
@@ -15,8 +15,8 @@ breadcrumb: "Season"
       <span>›</span>
       Season
     </nav>
-    <h1>{{ site.data.season.name }} <span class="accent">Season</span></h1>
-    <p>Everything you need to know about the {{ site.data.season.year }} LATC track &amp; field season.</p>
+    <h1>Summer Track <span class="accent">Season</span></h1>
+    <p>Everything you need to know about the LATC track &amp; field season.</p>
   </div>
 </section>
 
@@ -212,7 +212,7 @@ breadcrumb: "Season"
       {% for milestone in site.data.season.upcoming_milestones %}
       <div style="display:flex;align-items:center;gap:1.25rem;padding:1rem;border:1px solid #d0d8f0;border-radius:8px;margin-bottom:0.75rem;background:#f4f7ff">
         <div style="text-align:center;min-width:80px;background:#2952CC;color:#fff;border-radius:6px;padding:0.5rem;border-bottom:3px solid #76EE00">
-          <span style="font-family:Oswald,sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em">{{ milestone.date | date: "%b %-d" }}</span>
+          <span style="font-family:Oswald,sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em">{{ milestone.date }}</span>
         </div>
         <span style="font-size:1rem;font-weight:600;color:#0d1b55;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:0.03em">{{ milestone.event }}</span>
       </div>

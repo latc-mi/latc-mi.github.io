@@ -1160,6 +1160,30 @@
   }
 }
 
+.past-weeks-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 1.1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid $border-light;
+  border-radius: $border-radius;
+  background: $white;
+  color: $royal-blue;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $light-blue;
+    border-color: $royal-blue;
+  }
+}
+
 // =====================
 // Registration Steps
 // =====================

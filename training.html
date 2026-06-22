@@ -59,7 +59,7 @@ permalink: /training/
     <!-- ════════════════════════════════════════ -->
     <div id="training-list-view">
       {% for week in site.data.training_plans %}
-      <div class="training-week">
+      <div class="training-week" data-end-date="{{ week.end_date }}">
         <div class="training-week__header">
           <h3>Week {{ week.week }}</h3>
           <span class="week-dates">{{ week.start_date | date: "%b %-d" }} – {{ week.end_date | date: "%b %-d, %Y" }}</span>
@@ -109,7 +109,7 @@ permalink: /training/
       <!-- Calendar Navigation -->
       <div class="calendar-controls">
         <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
-        <span class="cal-month-label" id="cal-month-label" aria-live="polite">March 2025</span>
+        <span class="cal-month-label" id="cal-month-label" aria-live="polite">{{ site.time | date: "%B %Y" }}</span>
         <button class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8594;</button>
       </div>
 
