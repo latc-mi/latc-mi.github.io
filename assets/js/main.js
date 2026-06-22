@@ -25,6 +25,26 @@
     return 'easy';
   }
 
+  // Escape text for safe use inside HTML attributes / markup
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // Build the full-detail tooltip text shown on hover over a day's pills
+  function eventTooltip(ev) {
+    const parts = [];
+    if (ev.title) parts.push(ev.title);
+    if (ev.workout && ev.workout !== ev.title) parts.push(ev.workout);
+    if (ev.distance && ev.distance !== '0') parts.push('📏 ' + ev.distance);
+    if (ev.focus) parts.push('🎯 ' + ev.focus);
+    if (ev.intensity) parts.push('Intensity: ' + ev.intensity);
+    return parts.join('\n');
+  }
+
   // Parse "YYYY-MM-DD" → Date (local midnight, avoids UTC offset issues)
   function parseDate(str) {
     const parts = str.split('-');
@@ -106,12 +126,18 @@
       let eventsHtml = '';
       events.forEach(function (ev) {
         const ic = intensityClass(ev.intensity);
-        eventsHtml += `<span class="cal-event-pill cal-event-pill--${ic}">${ev.title || ev.dayLabel || 'Training'}</span>`;
+        const label = ev.title || ev.dayLabel || 'Training';
+        const tip = eventTooltip(ev) || label;
+        eventsHtml += `<span class="cal-event-pill cal-event-pill--${ic}" title="${escapeHtml(tip)}">${escapeHtml(label)}</span>`;
       });
 
-      const dataAttr = hasEvents ? ` data-date="${dateStr}"` : '';
+      let cellAttrs = '';
+      if (hasEvents) {
+        const cellTip = events.map(eventTooltip).join('\n\n');
+        cellAttrs = ` data-date="${dateStr}" title="${escapeHtml(cellTip)}"`;
+      }
 
-      html += `<div class="${classes}"${dataAttr}>`;
+      html += `<div class="${classes}"${cellAttrs}>`;
       html += `<div class="cal-date">${d}</div>`;
       html += eventsHtml;
       html += '</div>';
@@ -162,13 +188,21 @@
 
     modalBody.innerHTML = bodyHtml;
     modal.classList.add('is-open');
+
+    // Lock background scroll without shifting layout: reserve the width the
+    // scrollbar occupied so removing it doesn't reflow the calendar.
+    const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = 'hidden';
+    if (scrollbarW > 0) {
+      document.body.style.paddingRight = scrollbarW + 'px';
+    }
   }
 
   function closeDetail() {
     const modal = document.getElementById('cal-detail');
     if (modal) modal.classList.remove('is-open');
     document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
   }
 
   // ─── List View: hide past weeks ──────────────────────────────────────────

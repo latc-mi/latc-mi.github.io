@@ -925,7 +925,7 @@
 
 .cal-header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   background: $navy;
   border-bottom: 3px solid $neon-green;
 
@@ -943,11 +943,12 @@
 
 .cal-body {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   background: $white;
 }
 
 .cal-cell {
+  min-width: 0;
   min-height: 90px;
   border-right: 1px solid $border-light;
   border-bottom: 1px solid $border-light;
