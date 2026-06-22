@@ -2,7 +2,7 @@ title: "LATC - Lansing Area Track Club"
 description: "Lansing Area Track Club — Track & Field for Elementary through High School Athletes in Mid-Michigan"
 url: "https://latc-mi.github.io"
 baseurl: ""
-email: "info@latc-mi.org"
+# email: "info@latc-mi.org"
 
 # Build settings
 markdown: kramdown
@@ -23,10 +23,6 @@ navigation:
     url: "/"
   - title: "Season"
     url: "/season/"
-  - title: "Track Meets"
-    url: "/meets/"
-  - title: "Registration"
-    url: "/registration/"
   - title: "Training Plans"
     url: "/training/"
 

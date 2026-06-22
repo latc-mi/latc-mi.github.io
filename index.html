@@ -10,7 +10,7 @@ description: "LATC — Track & Field for elementary through high school athletes
     <h1>Run Fast.<br><span class="accent">LATC Strong.</span></h1>
     <p>Lansing Area Track Club — where Mid-Michigan athletes from elementary through high school discover their speed, build their character, and chase their personal best.</p>
     <div class="hero-actions">
-      <!-- <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary">Register Now</a> -->
+      <a href="{{ '/training/' | relative_url }}" class="btn btn--primary">View Training Plans</a>
       <a href="{{ '/season/' | relative_url }}" class="btn btn--outline">{{ site.data.season.name }}</a>
     </div>
   </div>
@@ -28,12 +28,12 @@ description: "LATC — Track & Field for elementary through high school athletes
       <span class="stat-label">Weekly Practices</span>
     </div>
     <div class="stat">
-      <span class="stat-number">6</span>
-      <span class="stat-label">Meets This Season</span>
+      <span class="stat-number">800–3200m</span>
+      <span class="stat-label">Distance Events</span>
     </div>
     <div class="stat">
-      <span class="stat-number">8</span>
-      <span class="stat-label">Weeks of Training</span>
+      <span class="stat-number">Jul 22</span>
+      <span class="stat-label">Championship Meet</span>
     </div>
   </div>
 </div>
@@ -64,7 +64,7 @@ description: "LATC — Track & Field for elementary through high school athletes
               <span class="info-icon">📍</span>
               <div class="info-text">
                 <strong>Practice Location</strong>
-                <span>{{ site.data.season.practice_location }}</span>
+                <a href="{{ site.data.season.practice_map_link }}">{{ site.data.season.practice_location }}</a>
               </div>
             </li>
             <li>
@@ -81,50 +81,50 @@ description: "LATC — Track & Field for elementary through high school athletes
         </div>
       </div>
 
-      <!-- <div class="card">
+      <div class="card">
         <div class="card__header card__header--green">
-          <h3>📋 Registration</h3>
+          <h3>📍 Practice</h3>
         </div>
         <div class="card__body">
           <ul class="info-list">
             <li>
-              <span class="info-icon">🎯</span>
+              <span class="info-icon">🕓</span>
               <div class="info-text">
-                <strong>Who Can Join</strong>
-                <span>All K–12 athletes in Mid-Michigan</span>
+                <strong>Days</strong>
+                <span>{{ site.data.season.practice_days }}</span>
               </div>
             </li>
             <li>
-              <span class="info-icon">📝</span>
+              <span class="info-icon">⏱️</span>
               <div class="info-text">
-                <strong>Registration Opens</strong>
-                <span>{{ site.data.season.registration_open }}</span>
+                <strong>Time</strong>
+                <span>{{ site.data.season.practice_time }}</span>
               </div>
             </li>
             <li>
-              <span class="info-icon">⏰</span>
+              <span class="info-icon">🗺️</span>
               <div class="info-text">
-                <strong>Registration Closes</strong>
-                <span>{{ site.data.season.registration_close }}</span>
+                <strong>Where</strong>
+                <a href="{{ site.data.season.practice_map_link }}">{{ site.data.season.practice_location }}</a>
               </div>
             </li>
           </ul>
         </div>
         <div class="card__footer">
-          <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary">Register Now</a>
+          <a href="{{ '/season/' | relative_url }}" class="btn btn--blue">Season Info</a>
         </div>
-      </div> -->
+      </div>
 
       <div class="card">
         <div class="card__header card__header--navy">
-          <h3>🏆 Track Meets</h3>
+          <h3>📋 Training Plans</h3>
         </div>
         <div class="card__body">
-          <p>This season features <strong>{{ site.data.meets.size }} meets</strong>, including invitationals, dual meets, and championship events culminating in the State Championships.</p>
-          <p>Check the meet schedule for dates, locations, and event lists.</p>
+          <p>The distance group's full week-by-week workout plan — building through the summer to the championship meet on July 22.</p>
+          <p>View it as a simple list or an interactive calendar.</p>
         </div>
         <div class="card__footer">
-          <a href="{{ '/meets/' | relative_url }}" class="btn btn--blue">Meet Schedule</a>
+          <a href="{{ '/training/' | relative_url }}" class="btn btn--primary">View Training Plans</a>
         </div>
       </div>
     </div>
@@ -180,10 +180,10 @@ description: "LATC — Track & Field for elementary through high school athletes
 </section>
 
 <!-- Call to Action -->
-<!-- <section class="section section--navy" aria-labelledby="cta-heading">
+<section class="section section--navy" aria-labelledby="cta-heading">
   <div class="container text-center">
-    <h2 id="cta-heading" style="color:#fff">Ready to Run with LATC?</h2>
-    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:500px;margin:0 auto 2rem">Don't miss your spot on the team — registration spots are limited!</p>
-    <a href="{{ '/registration/' | relative_url }}" class="btn btn--primary" style="font-size:1rem;padding:0.85rem 2rem">Get Registered Today</a>
+    <h2 id="cta-heading" style="color:#fff">Get the Training Plan</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:500px;margin:0 auto 2rem">Every workout, week by week, all the way to the championship meet.</p>
+    <a href="{{ '/training/' | relative_url }}" class="btn btn--primary" style="font-size:1rem;padding:0.85rem 2rem">View Training Plans</a>
   </div>
-</section> -->
+</section>

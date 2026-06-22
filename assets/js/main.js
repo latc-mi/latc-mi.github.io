@@ -8,7 +8,6 @@
   // ─── State ───────────────────────────────────────────────────────────────
   let currentDate = new Date();
   let trainingData = [];   // populated from inline JSON
-  let meetData = [];       // populated from inline JSON
 
   const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const MONTH_NAMES = [
@@ -64,21 +63,6 @@
       });
     });
 
-    // Meet days
-    meetData.forEach(function (meet) {
-      if (!meet.date) return;
-      const key = meet.date;
-      if (!map[key]) map[key] = [];
-      map[key].push({
-        type: 'meet',
-        title: meet.name,
-        location: meet.location,
-        meetType: meet.type,
-        description: meet.description,
-        isHost: meet.host
-      });
-    });
-
     return map;
   }
 
@@ -121,12 +105,8 @@
 
       let eventsHtml = '';
       events.forEach(function (ev) {
-        if (ev.type === 'training') {
-          const ic = intensityClass(ev.intensity);
-          eventsHtml += `<span class="cal-event-pill cal-event-pill--${ic}">${ev.title || ev.dayLabel || 'Training'}</span>`;
-        } else if (ev.type === 'meet') {
-          eventsHtml += `<span class="cal-event-pill cal-event-pill--meet">🏃 ${ev.title}</span>`;
-        }
+        const ic = intensityClass(ev.intensity);
+        eventsHtml += `<span class="cal-event-pill cal-event-pill--${ic}">${ev.title || ev.dayLabel || 'Training'}</span>`;
       });
 
       const dataAttr = hasEvents ? ` data-date="${dateStr}"` : '';
@@ -164,35 +144,20 @@
 
     let bodyHtml = '';
     events.forEach(function (ev) {
-      if (ev.type === 'training') {
-        const ic = intensityClass(ev.intensity);
-        bodyHtml += `
-          <div style="margin-bottom:1rem">
-            <div style="margin-bottom:0.4rem">
-              <strong style="font-family:var(--font-heading,Oswald,sans-serif);font-size:1.05rem;color:#0d1b55;text-transform:uppercase">${ev.title || 'Training Session'}</strong>
-            </div>
-            ${ev.weekTheme ? `<div style="font-size:0.8rem;color:#6b6b8a;margin-bottom:0.5rem;font-style:italic">Week Theme: ${ev.weekTheme}</div>` : ''}
-            <p style="font-size:0.95rem;color:#3a3a5c;margin-bottom:0.5rem">${ev.workout || ''}</p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;font-size:0.85rem;color:#6b6b8a">
-              ${ev.distance && ev.distance !== '0' ? `<span>📏 ${ev.distance}</span>` : ''}
-              ${ev.focus ? `<span>🎯 ${ev.focus}</span>` : ''}
-              ${ev.intensity ? `<span class="intensity intensity--${ic}">${ev.intensity}</span>` : ''}
-            </div>
-          </div>`;
-      } else if (ev.type === 'meet') {
-        bodyHtml += `
-          <div style="margin-bottom:1rem">
-            <div style="margin-bottom:0.35rem;display:flex;align-items:center;gap:0.5rem">
-              <strong style="font-family:var(--font-heading,Oswald,sans-serif);font-size:1.05rem;color:#0d1b55;text-transform:uppercase">🏆 ${ev.title}</strong>
-              ${ev.isHost ? '<span class="badge badge--host">Home Meet</span>' : ''}
-            </div>
-            <p style="font-size:0.95rem;color:#3a3a5c;margin-bottom:0.4rem">${ev.description || ''}</p>
-            <div style="font-size:0.85rem;color:#6b6b8a">
-              📍 ${ev.location || ''}
-              ${ev.meetType ? ` · <span class="badge badge--blue">${ev.meetType}</span>` : ''}
-            </div>
-          </div>`;
-      }
+      const ic = intensityClass(ev.intensity);
+      bodyHtml += `
+        <div style="margin-bottom:1rem">
+          <div style="margin-bottom:0.4rem">
+            <strong style="font-family:var(--font-heading,Oswald,sans-serif);font-size:1.05rem;color:#0d1b55;text-transform:uppercase">${ev.title || 'Training Session'}</strong>
+          </div>
+          ${ev.weekTheme ? `<div style="font-size:0.8rem;color:#6b6b8a;margin-bottom:0.5rem;font-style:italic">Week Theme: ${ev.weekTheme}</div>` : ''}
+          <p style="font-size:0.95rem;color:#3a3a5c;margin-bottom:0.5rem">${ev.workout || ''}</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;font-size:0.85rem;color:#6b6b8a">
+            ${ev.distance && ev.distance !== '0' ? `<span>📏 ${ev.distance}</span>` : ''}
+            ${ev.focus ? `<span>🎯 ${ev.focus}</span>` : ''}
+            ${ev.intensity ? `<span class="intensity intensity--${ic}">${ev.intensity}</span>` : ''}
+          </div>
+        </div>`;
     });
 
     modalBody.innerHTML = bodyHtml;
@@ -296,15 +261,11 @@
   // ─── Init ─────────────────────────────────────────────────────────────────
 
   function init() {
-    // Load data from embedded JSON script tags
+    // Load data from embedded JSON script tag
     const trainingJson = document.getElementById('training-plans-data');
-    const meetJson = document.getElementById('meets-data');
 
     if (trainingJson) {
       try { trainingData = JSON.parse(trainingJson.textContent); } catch (e) { trainingData = []; }
-    }
-    if (meetJson) {
-      try { meetData = JSON.parse(meetJson.textContent); } catch (e) { meetData = []; }
     }
 
     // Default the calendar to the current month. Past months stay reachable
