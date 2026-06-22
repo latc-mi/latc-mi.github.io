@@ -363,8 +363,81 @@
     });
   }
 
+  // ─── QR Share ──────────────────────────────────────────────────────────────
+  // Shows a QR code for the current page so it can be shared by having someone
+  // scan it with a phone camera.
+
+  function setupQrShare() {
+    const btn = document.getElementById('qr-share-btn');
+    const modal = document.getElementById('qr-modal');
+    const closeBtn = document.getElementById('qr-modal-close');
+    const codeEl = document.getElementById('qr-modal-code');
+    const urlEl = document.getElementById('qr-modal-url');
+
+    if (!btn || !modal || !codeEl) return;
+
+    let rendered = false;
+
+    function renderCode() {
+      if (rendered) return;
+      const url = window.location.href;
+
+      if (urlEl) {
+        urlEl.href = url;
+        urlEl.textContent = url;
+      }
+
+      // typeNumber 0 = auto-size; 'M' = ~15% error correction (robust for print/screen)
+      if (typeof qrcode === 'function') {
+        try {
+          const qr = qrcode(0, 'M');
+          qr.addData(url);
+          qr.make();
+          // Render as a scalable SVG so it stays crisp at any size.
+          codeEl.innerHTML = qr.createSvgTag({ scalable: true });
+        } catch (e) {
+          codeEl.textContent = 'Unable to generate QR code.';
+        }
+      } else {
+        codeEl.textContent = 'Unable to generate QR code.';
+      }
+      rendered = true;
+    }
+
+    function open() {
+      renderCode();
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+
+      // Lock background scroll without shifting layout.
+      const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      if (scrollbarW > 0) document.body.style.paddingRight = scrollbarW + 'px';
+
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      btn.focus();
+    }
+
+    btn.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     setupNav();
+    setupQrShare();
     if (document.getElementById('training-list-view') || document.getElementById('training-cal-view')) {
       init();
     }

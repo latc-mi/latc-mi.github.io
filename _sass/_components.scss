@@ -103,6 +103,49 @@
   }
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.qr-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-heading;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $navy;
+  background: $neon-green;
+  border: 2px solid $neon-green;
+  border-radius: $border-radius;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s ease;
+
+  &__icon {
+    display: block;
+  }
+
+  &:hover {
+    background: $neon-green-light;
+    border-color: $neon-green-light;
+    color: $navy;
+  }
+
+  @media (max-width: $bp-sm) {
+    padding: 0.4rem 0.6rem;
+
+    &__label {
+      display: none; // icon-only on the smallest screens to save space
+    }
+  }
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -117,6 +160,98 @@
   &:hover {
     border-color: $neon-green;
     color: $neon-green;
+  }
+}
+
+// =====================
+// QR Share Modal
+// =====================
+.qr-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &.is-open {
+    display: flex;
+  }
+
+  &__box {
+    background: $white;
+    border-radius: $border-radius * 2;
+    max-width: 380px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  &__header {
+    background: linear-gradient(135deg, $navy, $royal-blue);
+    color: $white;
+    padding: 1rem 1.5rem;
+    border-bottom: 3px solid $neon-green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      color: $white;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  &__code {
+    width: 240px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1rem;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__hint {
+    font-size: 0.9rem;
+    color: $text-mid;
+    margin: 0 0 0.75rem;
+  }
+
+  &__url {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 0.8rem;
+    color: $royal-blue;
+    word-break: break-all;
+
+    &:hover {
+      color: $royal-blue-dark;
+    }
   }
 }
 

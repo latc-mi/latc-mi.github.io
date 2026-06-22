@@ -1,0 +1,14 @@
+<!-- QR share modal: shows a scannable QR code for the current page -->
+<div class="qr-modal" id="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title" aria-hidden="true">
+  <div class="qr-modal__box">
+    <div class="qr-modal__header">
+      <h3 id="qr-modal-title">Scan to open this page</h3>
+      <button type="button" id="qr-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="qr-modal__body">
+      <div class="qr-modal__code" id="qr-modal-code" aria-hidden="true"></div>
+      <p class="qr-modal__hint">Point a phone camera at the code to open this page.</p>
+      <a class="qr-modal__url" id="qr-modal-url" href="#" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</div>
