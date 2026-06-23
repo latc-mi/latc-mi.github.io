@@ -33,7 +33,11 @@ breadcrumb: "Season"
         <div style="text-align:center;min-width:80px;background:#2952CC;color:#fff;border-radius:6px;padding:0.5rem;border-bottom:3px solid #76EE00">
           <span style="font-family:Oswald,sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em">{{ meet.date }}</span>
         </div>
+        {% if meet.link %}
+        <a href="{{ meet.link | relative_url }}" style="font-size:1rem;font-weight:600;color:#2952CC;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:0.03em">{{ meet.event }} ›</a>
+        {% else %}
         <span style="font-size:1rem;font-weight:600;color:#0d1b55;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:0.03em">{{ meet.event }}</span>
+        {% endif %}
       </div>
       {% endfor %}
       </div>
