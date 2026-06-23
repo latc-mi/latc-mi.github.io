@@ -86,6 +86,9 @@ permalink: /training/
                 {% if day.focus %}
                 <span class="meta-item">🎯 {{ day.focus }}</span>
                 {% endif %}
+                {% for link in day.links %}
+                <span class="meta-item">🔗 <a href="{{ link.url }}">{{ link.label }}</a></span>
+                {% endfor %}
               </div>
             </div>
             <div class="training-day__intensity">

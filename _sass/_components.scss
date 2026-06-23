@@ -29,21 +29,19 @@
   .logo-mark {
     width: 48px;
     height: 48px;
-    background: $royal-blue;
+    background: $white;
     border: 3px solid $neon-green;
     border-radius: 50%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 
-    span {
-      font-family: $font-heading;
-      font-weight: 900;
-      font-size: 1rem;
-      color: $neon-green;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -1460,20 +1458,19 @@
       .logo-mark {
         width: 40px;
         height: 40px;
-        background: $royal-blue;
+        background: $white;
         border: 2px solid $neon-green;
         border-radius: 50%;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
 
-        span {
-          font-family: $font-heading;
-          font-weight: 900;
-          font-size: 0.8rem;
-          color: $neon-green;
-          letter-spacing: -0.05em;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
 

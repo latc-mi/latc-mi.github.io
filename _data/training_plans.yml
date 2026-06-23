@@ -1,8 +1,15 @@
 - week: 1
-  theme: "Base week before Meet 1"
+  theme: "Block A — Building to Meet 1"
   start_date: "2026-06-18"
   end_date: "2026-06-21"
   days:
+    - day: "Wednesday"
+      date: "2026-06-17"
+      title: "MEET 1 - CANCELLED"
+      workout: "Race day."
+      distance: "Race distance"
+      intensity: "Hard"
+      focus: "Competition"
     - day: "Thursday"
       date: "2026-06-18"
       title: "Easy Base + Strides"
@@ -33,7 +40,7 @@
       focus: "Recovery"
 
 - week: 2
-  theme: "Block A — Building to Meet 1"
+  theme: "Block B — Building to Meet 2"
   start_date: "2026-06-22"
   end_date: "2026-06-28"
   days:
@@ -53,11 +60,14 @@
       focus: "Sharpness"
     - day: "Wednesday"
       date: "2026-06-24"
-      title: "MEET 1"
+      title: "MEET 2"
       workout: "Race day."
       distance: "Race distance"
       intensity: "Hard"
       focus: "Competition"
+      links:
+        - label: Event list
+          url: "/meets/ribbon-meet-june-24-2026/"
     - day: "Thursday"
       date: "2026-06-25"
       title: "Recovery Day"
@@ -88,7 +98,7 @@
       focus: "Recovery"
 
 - week: 3
-  theme: "Block B — Main build week (no meet on 7/1)"
+  theme: "Block C — Main build week (no meet on 7/1)"
   start_date: "2026-06-29"
   end_date: "2026-07-05"
   days:
