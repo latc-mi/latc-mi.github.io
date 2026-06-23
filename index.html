@@ -155,30 +155,6 @@ description: "LATC — Track & Field for elementary through high school athletes
   </div>
 </section>
 
-<!-- Coaching Staff -->
-<section class="section" aria-labelledby="coaches-heading">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="coaches-heading">Our Coaches</h2>
-      <p>Experienced coaches dedicated to helping every athlete reach their potential.</p>
-    </div>
-
-    <div class="card-grid card-grid--3">
-      {% for coach in site.data.season.coaching_staff %}
-      <div class="card">
-        <div class="card__header">
-          <h3>{{ coach.name }}</h3>
-        </div>
-        <div class="card__body">
-          <p><strong>Role:</strong> {{ coach.role }}</p>
-          <p><strong>Specialty:</strong> {{ coach.specialty }}</p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- Call to Action -->
 <section class="section section--navy" aria-labelledby="cta-heading">
   <div class="container text-center">

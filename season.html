@@ -136,44 +136,6 @@ breadcrumb: "Season"
   </div>
 </section>
 
-<!-- Coaching Staff -->
-<section class="section" aria-labelledby="staff-heading">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="staff-heading">Coaching Staff</h2>
-      <p>Our dedicated coaching staff brings expertise in all areas of track &amp; field.</p>
-    </div>
-
-    <div class="card-grid card-grid--3">
-      {% for coach in site.data.season.coaching_staff %}
-      <div class="card">
-        <div class="card__header">
-          <h3>{{ coach.name }}</h3>
-        </div>
-        <div class="card__body">
-          <ul class="info-list">
-            <li>
-              <span class="info-icon">🏅</span>
-              <div class="info-text">
-                <strong>Role</strong>
-                <span>{{ coach.role }}</span>
-              </div>
-            </li>
-            <li>
-              <span class="info-icon">⚡</span>
-              <div class="info-text">
-                <strong>Specialty</strong>
-                <span>{{ coach.specialty }}</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- Season Highlights -->
 <section class="section section--blue" aria-labelledby="highlights-heading">
   <div class="container">
