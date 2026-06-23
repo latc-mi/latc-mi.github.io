@@ -24,7 +24,7 @@ description: "LATC — Track & Field for elementary through high school athletes
       <span class="stat-label">All Ages Welcome</span>
     </div>
     <div class="stat">
-      <span class="stat-number">3×</span>
+      <span class="stat-number">2x</span>
       <span class="stat-label">Weekly Practices</span>
     </div>
     <div class="stat">
@@ -127,30 +127,6 @@ description: "LATC — Track & Field for elementary through high school athletes
           <a href="{{ '/training/' | relative_url }}" class="btn btn--primary">View Training Plans</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Age Groups -->
-<section class="section section--alt" aria-labelledby="age-groups-heading">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="age-groups-heading">Who We Are</h2>
-      <p>LATC is open to all grade levels — from Kindergarten all the way through 12th grade.</p>
-    </div>
-
-    <div class="card-grid card-grid--3">
-      {% for group in site.data.season.age_groups %}
-      <div class="card">
-        <div class="card__header">
-          <h3>{{ group.name }}</h3>
-        </div>
-        <div class="card__body">
-          <p><strong>Grades:</strong> {{ group.grades }}</p>
-          <p><strong>Ages:</strong> {{ group.ages }}</p>
-        </div>
-      </div>
-      {% endfor %}
     </div>
   </div>
 </section>

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Summer Track Season"
-description: "Details about the LATC Summer Track Season — schedule, coaching staff, age groups, and season highlights."
+description: "Details about the LATC Summer Track Season schedule."
 permalink: /season/
 hero_title: "Summer Track Season"
 hero_subtitle: "Everything you need to know about our track & field season."
@@ -17,6 +17,27 @@ breadcrumb: "Season"
     </nav>
     <h1>Summer Track <span class="accent">Season</span></h1>
     <p>Everything you need to know about the LATC track &amp; field season.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="season-heading">Season Overview</h2>
+      <p>All meets are at <a href="{{ site.data.season.meet_location_map_link }}">{{ site.data.season.meet_location }}</a></p>
+      <p>Official web site for Grand Ledge Summer Track: <a href="{{ site.data.season.meet_web_link }}">{{ site.data.season.meet_web_link }}</a></p>
+      <p>Meet schedule for {{ site.data.season.season_year }}</p>
+      <div style="max-width:600px;margin:0 auto">
+      {% for meet in site.data.season.upcoming_meets %}
+      <div style="display:flex;align-items:center;gap:1.25rem;padding:1rem;border:1px solid #d0d8f0;border-radius:8px;margin-bottom:0.75rem;background:#f4f7ff">
+        <div style="text-align:center;min-width:80px;background:#2952CC;color:#fff;border-radius:6px;padding:0.5rem;border-bottom:3px solid #76EE00">
+          <span style="font-family:Oswald,sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em">{{ meet.date }}</span>
+        </div>
+        <span style="font-size:1rem;font-weight:600;color:#0d1b55;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:0.03em">{{ meet.event }}</span>
+      </div>
+      {% endfor %}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -36,13 +57,6 @@ breadcrumb: "Season"
               <div class="info-text">
                 <strong>Season Start</strong>
                 <span>{{ site.data.season.season_start }}</span>
-              </div>
-            </li>
-            <li>
-              <span class="info-icon">🏁</span>
-              <div class="info-text">
-                <strong>Season End</strong>
-                <span>{{ site.data.season.season_end }}</span>
               </div>
             </li>
             <li>
@@ -87,70 +101,13 @@ breadcrumb: "Season"
               <span class="info-icon">🗺️</span>
               <div class="info-text">
                 <strong>Address</strong>
-                <span>{{ site.data.season.practice_address }}</span>
+                <span><a href="{{ site.data.season.practice_map_link }}">{{ site.data.season.practice_address }}</a></span>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- Age Groups -->
-<section class="section section--alt" aria-labelledby="age-groups-season-heading">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="age-groups-season-heading">Age Groups</h2>
-      <p>LATC welcomes all athletes from Kindergarten through 12th grade.</p>
-    </div>
-
-    <div class="card-grid card-grid--3">
-      {% for group in site.data.season.age_groups %}
-      <div class="card">
-        <div class="card__header">
-          <h3>{{ group.name }}</h3>
-        </div>
-        <div class="card__body">
-          <ul class="info-list">
-            <li>
-              <span class="info-icon">🎓</span>
-              <div class="info-text">
-                <strong>Grades</strong>
-                <span>{{ group.grades }}</span>
-              </div>
-            </li>
-            <li>
-              <span class="info-icon">🎂</span>
-              <div class="info-text">
-                <strong>Ages</strong>
-                <span>{{ group.ages }} years old</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- Season Highlights -->
-<section class="section section--blue" aria-labelledby="highlights-heading">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="highlights-heading" style="color:#fff">Season Highlights</h2>
-      <p>Recent achievements that show what LATC athletes can accomplish.</p>
-    </div>
-
-    <div style="max-width:600px;margin:0 auto">
-      {% for highlight in site.data.season.highlights %}
-      <div style="display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem;background:rgba(255,255,255,0.1);border-radius:8px;padding:1rem;border-left:4px solid #76EE00">
-        <span style="font-size:1.4rem">🏆</span>
-        <span style="color:#fff;font-size:1rem">{{ highlight }}</span>
-      </div>
-      {% endfor %}
     </div>
   </div>
 </section>
