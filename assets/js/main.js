@@ -393,8 +393,18 @@
           const qr = qrcode(0, 'M');
           qr.addData(url);
           qr.make();
-          // Render as a scalable SVG so it stays crisp at any size.
-          codeEl.innerHTML = qr.createSvgTag({ scalable: true });
+          // Render as a raster <img> (data URL) rather than an inline SVG.
+          // Chrome's "Auto Dark Theme" on Android rewrites the colors of inline
+          // SVG / vector content, which turns the QR into an invisible
+          // white-on-white square. It leaves raster <img> elements alone, so
+          // rendering the code as an image keeps it scannable in dark mode.
+          // cellSize 8 + margin 16 gives a high-res image that the CSS scales
+          // down crisply (image-rendering: pixelated).
+          const img = new Image();
+          img.alt = 'QR code to open this page';
+          img.src = qr.createDataURL(8, 16);
+          codeEl.innerHTML = '';
+          codeEl.appendChild(img);
         } catch (e) {
           codeEl.textContent = 'Unable to generate QR code.';
         }
