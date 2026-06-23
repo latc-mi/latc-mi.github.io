@@ -77,6 +77,7 @@
           workout: day.workout,
           distance: day.distance,
           focus: day.focus,
+          links: day.links,
           weekTheme: week.theme,
           dayLabel: day.day
         });
@@ -183,6 +184,7 @@
             ${ev.focus ? `<span>🎯 ${ev.focus}</span>` : ''}
             ${ev.intensity ? `<span class="intensity intensity--${ic}">${ev.intensity}</span>` : ''}
           </div>
+          ${ev.links && ev.links.length ? `<div style="display:flex;gap:1rem;flex-wrap:wrap;font-size:0.85rem;margin-top:0.5rem">${ev.links.map(function (link) { return `<span>🔗 <a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a></span>`; }).join('')}</div>` : ''}
         </div>`;
     });
 
