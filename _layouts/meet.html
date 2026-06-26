@@ -1,0 +1,185 @@
+---
+layout: default
+---
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      <a href="{{ '/season/' | relative_url }}">Season</a>
+      <span>›</span>
+      {{ page.breadcrumb }}
+    </nav>
+    <h1>{{ page.hero_title }} <span class="accent">{{ page.hero_accent }}</span></h1>
+    <p>{{ page.hero_blurb }}</p>
+  </div>
+</section>
+
+<!-- Event line-up (unique per meet — supplied by the page body) -->
+{{ content }}
+
+<!-- Meet details & registration -->
+<section class="section">
+  <div class="container">
+    <div class="card-grid card-grid--2">
+
+      <div class="card">
+        <div class="card__header">
+          <h3>📍 Meet Details</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            <li>
+              <span class="info-icon">🗓️</span>
+              <div class="info-text">
+                <strong>Date</strong>
+                <span>{{ page.meet_date }}</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">{{ page.format_icon }}</span>
+              <div class="info-text">
+                <strong>Format</strong>
+                <span>{{ page.format_text }}</span>
+              </div>
+            </li>
+            {% for row in page.extra_details %}
+            <li>
+              <span class="info-icon">{{ row.icon }}</span>
+              <div class="info-text">
+                <strong>{{ row.label }}</strong>
+                <span>{{ row.text }}</span>
+              </div>
+            </li>
+            {% endfor %}
+            <li>
+              <span class="info-icon">🏟️</span>
+              <div class="info-text">
+                <strong>Location</strong>
+                <span>Grand Ledge Track Complex</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🗺️</span>
+              <div class="info-text">
+                <strong>Address</strong>
+                <span><a href="https://maps.google.com/?q=1211+Lohne+Dr,+Grand+Ledge,+MI+48837">1211 Lohne Dr., Grand Ledge, MI 48837</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <h3>🎟️ Registration</h3>
+        </div>
+        <div class="card__body">
+          <ul class="info-list">
+            {% if page.registration == "championship" %}
+            <li>
+              <span class="info-icon">💵</span>
+              <div class="info-text">
+                <strong>Drop-in fee</strong>
+                <span>$15 at the gate for the Championship Meet</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">✅</span>
+              <div class="info-text">
+                <strong>Already pre-registered?</strong>
+                <span>The $80 season registration includes the Championship Meet — nothing more to pay</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">🌐</span>
+              <div class="info-text">
+                <strong>Pre-register online</strong>
+                <span><a href="https://www.grandledgecomets.org">www.grandledgecomets.org</a></span>
+              </div>
+            </li>
+            {% else %}
+            <li>
+              <span class="info-icon">1️⃣</span>
+              <div class="info-text">
+                <strong>Option 1 — Pay per meet</strong>
+                <span>$10 per meet · $15 for the 51st Annual Championship Meet</span>
+              </div>
+            </li>
+            <li>
+              <span class="info-icon">2️⃣</span>
+              <div class="info-text">
+                <strong>Option 2 — Pre-register for the season</strong>
+                <span>$80 for the entire season, including the 51st Annual Championship Meet, at <a href="https://www.grandledgecomets.org">www.grandledgecomets.org</a></span>
+              </div>
+            </li>
+            {% endif %}
+            <li>
+              <span class="info-icon">📞</span>
+              <div class="info-text">
+                <strong>Questions?</strong>
+                <span>Contact Rich White at <a href="tel:+15172142958">517-214-2958</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Age group considerations (shared across all meets) -->
+<section class="section">
+  <div class="container">
+    <div class="card" style="max-width:640px;margin:0 auto">
+      <div class="card__header">
+        <h3>🎂 Age Group Considerations</h3>
+      </div>
+      <div class="card__body">
+        <ul class="info-list">
+          <li>
+            <span class="info-icon">🏅</span>
+            <div class="info-text">
+              <strong>Placing age groups</strong>
+              <span>4 &amp; under, 5 &amp; 6, 7 &amp; 8, 9 &amp; 10, 11 &amp; 12, 13 &amp; 14, 15 &amp; 16, 17 &amp; 18, 19–29, 30–39, 40–49, 50–59, and 60 &amp; over</span>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">📅</span>
+            <div class="info-text">
+              <strong>Age as of meet day</strong>
+              <span>Your age group is set by how old you are on the day of the meet</span>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">👶</span>
+            <div class="info-text">
+              <strong>4 &amp; under</strong>
+              <span>May compete in Long Jump, Softball Throw (Championship Meet only), and running distances of 400m or less</span>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">👟</span>
+            <div class="info-text">
+              <strong>20m Mini Dash</strong>
+              <span>2 &amp; under, then 3 &amp; 4 only</span>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">🏃</span>
+            <div class="info-text">
+              <strong>5000m run</strong>
+              <span>Ages 7 &amp; up only</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-4" style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center">
+      <a href="{{ '/season/' | relative_url }}" class="btn btn--primary">Back to Season Schedule</a>
+    </div>
+  </div>
+</section>

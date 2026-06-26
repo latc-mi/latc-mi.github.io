@@ -57,7 +57,7 @@ events:
     present: [1, 2, 3, 4, 5]
   - name: "Softball Throw"
     group: field
-    note: "4 &amp; under"
+    note: "ages 4 &amp; under"
     present: [5]
 
   # Hurdles, ordered by distance
@@ -83,7 +83,7 @@ events:
   # Track events, ordered by distance
   - name: "20m Mini Dash"
     group: track
-    note: "4 &amp; under"
+    note: "ages 4 &amp; under"
     present: [2, 4, 5]
   - name: "55m Dash"
     group: track
@@ -103,7 +103,7 @@ events:
   - name: "800m"
     group: track
     present: [1, 2, 3, 4, 5]
-  - name: "1600m (One Mile)"
+  - name: "1600m"
     group: track
     present: [1, 2, 3, 4, 5]
   - name: "3200m"

@@ -116,8 +116,8 @@ in existing repo facts plus the placing age groups supplied by the user):
 - **Placing age groups:** 4 & under, 5 & 6, 7 & 8, 9 & 10, 11 & 12, 13 & 14,
   15 & 16, 17 & 18, 19–29, 30–39, 40–49, 50–59, and 60 & over.
 - **Age is determined as of meet day.**
-- **4 & under** may compete in Long Jump, Softball Throw, and running distances
-  of 400m or less, at every meet.
+- **4 & under** may compete in Long Jump, Softball Throw (Championship Meet only),
+  and running distances of 400m or less.
 - **20m Mini Dash** — 2 & under, then 3 & 4 only.
 - **5000m run** — ages 7 & up (Track Meet championship event).
 
