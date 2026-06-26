@@ -1,0 +1,112 @@
+# Annual cycle of meet events.
+# Cell state is derived from the meet "type" plus an optional per-event
+# "championship_at" (the meet number where that event is the championship):
+#   - championship meet (or championship_at match) -> medallion
+#   - ribbon meet                                   -> ribbon
+#   - regular track meet                            -> standard (green)
+# "present" lists the meet numbers in which the event is contested.
+
+meets:
+  - num: 1
+    date: "Jun 17"
+    type: track
+    note: "Rained out this year"
+  - num: 2
+    date: "Jun 24"
+    type: ribbon
+    link: "/meets/ribbon-meet-june-24-2026/"
+  - num: 3
+    date: "Jul 8"
+    type: track
+    link: "/meets/track-meet-july-8-2026/"
+  - num: 4
+    date: "Jul 15"
+    type: ribbon
+    link: "/meets/ribbon-meet-july-15-2026/"
+  - num: 5
+    date: "Jul 22"
+    type: championship
+    link: "/meets/championship-meet-july-22-2026/"
+
+groups:
+  - key: field
+    label: "Field Events"
+  - key: track
+    label: "Track Events (by distance)"
+  - key: relay
+    label: "Relays"
+
+events:
+  # Field events
+  - name: "Long Jump"
+    group: field
+    present: [1, 2, 3, 4, 5]
+  - name: "High Jump"
+    group: field
+    present: [1, 2, 3, 4, 5]
+  - name: "Pole Vault"
+    group: field
+    present: [1, 2, 3, 4, 5]
+  - name: "Discus"
+    group: field
+    present: [1, 2, 3, 4, 5]
+  - name: "Shot Put"
+    group: field
+    present: [1, 2, 3, 4, 5]
+  - name: "Softball Throw"
+    group: field
+    note: "4 &amp; under"
+    present: [5]
+
+  # Track events, ordered by distance
+  - name: "20m Mini Dash"
+    group: track
+    note: "4 &amp; under"
+    present: [2, 4, 5]
+  - name: "55m Hurdles"
+    group: track
+    present: [1, 2, 3, 4, 5]
+  - name: "55m Dash"
+    group: track
+    present: [3]
+  - name: "70m Dash"
+    group: track
+    present: [1, 2]
+  - name: "100m Dash"
+    group: track
+    present: [1, 3, 4, 5]
+  - name: "100m Hurdles"
+    group: track
+    present: [1, 2, 3, 4, 5]
+  - name: "110m Hurdles"
+    group: track
+    present: [1, 2, 3, 4, 5]
+  - name: "200m"
+    group: track
+    present: [2, 4, 5]
+  - name: "400m"
+    group: track
+    present: [4, 5]
+  - name: "800m"
+    group: track
+    present: [1, 2, 3, 4, 5]
+  - name: "1600m (One Mile)"
+    group: track
+    present: [1, 2, 3, 4, 5]
+  - name: "3200m"
+    group: track
+    present: [1, 2, 4, 5]
+  - name: "5000m Run"
+    group: track
+    note: "ages 7 &amp; up"
+    present: [3]
+    championship_at: 3
+
+  # Relays
+  - name: "4x100 Relay"
+    group: relay
+    present: [1, 2]
+    championship_at: 2
+  - name: "4x400 Relay"
+    group: relay
+    present: [5]

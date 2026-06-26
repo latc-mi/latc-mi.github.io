@@ -1,0 +1,93 @@
+---
+layout: default
+title: "Annual Event Cycle"
+description: "Grand Ledge Summer Track annual event cycle — which events are contested at each meet across the season, and which are championship or ribbon events."
+permalink: /events/
+breadcrumb: "Events"
+---
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      Events
+    </nav>
+    <h1>Annual <span class="accent">Event Cycle</span></h1>
+    <p>Every event across the season, sorted by distance, showing which meet each one is contested at.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="matrix-legend" aria-hidden="false">
+      <span class="matrix-legend__item"><span class="cell cell--champ">🏅</span> Championship event (medals)</span>
+      <span class="matrix-legend__item"><span class="cell cell--ribbon">🎗️</span> Ribbon event (ribbons 1st – 5th)</span>
+      <span class="matrix-legend__item"><span class="cell cell--standard">✅</span> Standard event that week</span>
+    </div>
+
+    <div class="matrix-scroll">
+      <table class="event-matrix">
+        <thead>
+          <tr>
+            <th scope="col" class="event-matrix__corner">Event</th>
+            {% for meet in site.data.event_matrix.meets %}
+            <th scope="col" class="event-matrix__meet event-matrix__meet--{{ meet.type }}">
+              {% if meet.link %}<a href="{{ meet.link | relative_url }}">{% endif %}
+              <span class="event-matrix__meetnum">Meet {{ meet.num }}</span>
+              <span class="event-matrix__meetdate">{{ meet.date }}</span>
+              <span class="event-matrix__meettype">{{ meet.type }}</span>
+              {% if meet.link %}</a>{% endif %}
+            </th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for group in site.data.event_matrix.groups %}
+          <tr class="event-matrix__grouprow">
+            <th scope="colgroup" colspan="{{ site.data.event_matrix.meets | size | plus: 1 }}">{{ group.label }}</th>
+          </tr>
+          {% for event in site.data.event_matrix.events %}
+          {% if event.group == group.key %}
+          <tr>
+            <th scope="row" class="event-matrix__event">
+              {{ event.name }}{% if event.note %} <span class="event-matrix__note">{{ event.note }}</span>{% endif %}
+            </th>
+            {% for meet in site.data.event_matrix.meets %}
+            <td class="event-matrix__cell">
+              {% if event.present contains meet.num %}
+                {% if meet.type == "championship" or event.championship_at == meet.num %}
+                  <span class="cell cell--champ" title="Championship event at Meet {{ meet.num }}">🏅</span>
+                {% elsif meet.type == "ribbon" %}
+                  <span class="cell cell--ribbon" title="Ribbon event at Meet {{ meet.num }}">🎗️</span>
+                {% else %}
+                  <span class="cell cell--standard" title="Scheduled at Meet {{ meet.num }}">✅</span>
+                {% endif %}
+              {% endif %}
+            </td>
+            {% endfor %}
+          </tr>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="matrix-notes">
+      <p><strong>Notes</strong></p>
+      <ul>
+        <li>At <strong>ribbon meets</strong>, every individual event awards ribbons for 1st – 5th place.</li>
+        <li>At the <strong>championship meet</strong>, all events are timed finals, eligible for records, with medals to the top finishers.</li>
+        <li>The <strong>4 &amp; under</strong> age group may compete in Long Jump, Softball Throw, and running distances of 400m or less at every meet.</li>
+        <li>Hurdles are run at MHSAA heights. Line-ups are based on last year's cycle — check the meet pages and <a href="{{ site.data.season.meet_web_link }}">Facebook</a> for weekly updates.</li>
+      </ul>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{{ '/season/' | relative_url }}" class="btn btn--primary">View Full Season Schedule</a>
+    </div>
+
+  </div>
+</section>

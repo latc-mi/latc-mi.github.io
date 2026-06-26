@@ -23,6 +23,8 @@ navigation:
     url: "/"
   - title: "Season"
     url: "/season/"
+  - title: "Meet Events"
+    url: "/events/"
   - title: "Training Plans"
     url: "/training/"
 
