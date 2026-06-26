@@ -31,10 +31,12 @@ meets:
 groups:
   - key: field
     label: "Field Events"
-  - key: track
-    label: "Track Events (by distance)"
+  - key: hurdles
+    label: "Hurdles"
   - key: relay
     label: "Relays"
+  - key: track
+    label: "Track Events"
 
 events:
   # Field events
@@ -58,14 +60,31 @@ events:
     note: "4 &amp; under"
     present: [5]
 
+  # Hurdles, ordered by distance
+  - name: "55m Hurdles"
+    group: hurdles
+    present: [1, 2, 3, 4, 5]
+  - name: "100m Hurdles"
+    group: hurdles
+    present: [1, 2, 3, 4, 5]
+  - name: "110m Hurdles"
+    group: hurdles
+    present: [1, 2, 3, 4, 5]
+
+  # Relays
+  - name: "4x100 Relay"
+    group: relay
+    present: [1, 2]
+    championship_at: 2
+  - name: "4x400 Relay"
+    group: relay
+    present: [5]
+
   # Track events, ordered by distance
   - name: "20m Mini Dash"
     group: track
     note: "4 &amp; under"
     present: [2, 4, 5]
-  - name: "55m Hurdles"
-    group: track
-    present: [1, 2, 3, 4, 5]
   - name: "55m Dash"
     group: track
     present: [3]
@@ -75,12 +94,6 @@ events:
   - name: "100m Dash"
     group: track
     present: [1, 3, 4, 5]
-  - name: "100m Hurdles"
-    group: track
-    present: [1, 2, 3, 4, 5]
-  - name: "110m Hurdles"
-    group: track
-    present: [1, 2, 3, 4, 5]
   - name: "200m"
     group: track
     present: [2, 4, 5]
@@ -101,12 +114,3 @@ events:
     note: "ages 7 &amp; up"
     present: [3]
     championship_at: 3
-
-  # Relays
-  - name: "4x100 Relay"
-    group: relay
-    present: [1, 2]
-    championship_at: 2
-  - name: "4x400 Relay"
-    group: relay
-    present: [5]
