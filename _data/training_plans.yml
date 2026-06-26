@@ -178,6 +178,9 @@
       distance: "Race distance"
       intensity: "Hard"
       focus: "Competition"
+      links:
+        - label: Event list
+          url: "/meets/track-meet-july-8-2026/"
     - day: "Thursday"
       date: "2026-07-09"
       title: "Recovery Day"
@@ -233,6 +236,9 @@
       distance: "Race distance"
       intensity: "Hard"
       focus: "Competition"
+      links:
+        - label: Event list
+          url: "/meets/ribbon-meet-july-15-2026/"
     - day: "Thursday"
       date: "2026-07-16"
       title: "Easy Recovery + Strides"
@@ -288,3 +294,6 @@
       distance: "Race distance"
       intensity: "Hard"
       focus: "Peak performance"
+      links:
+        - label: Event list
+          url: "/meets/championship-meet-july-22-2026/"
