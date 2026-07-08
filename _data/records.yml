@@ -81,7 +81,7 @@ records:
   - { gender: boys, event: "Shot Put", age: "5 & 6", name: "Pierce Wison", city: "Flint", mark: "4' 10\"", year: 2016, set: 2016 }
   - { gender: boys, event: "Shot Put", age: "7 & 8", name: "Daniel Luckett", city: "East Lansing", mark: "27.5", year: 2017, set: 2017, note: "Mark transcribed verbatim from 2018 PDF (likely 27' 5\")." }
   - { gender: boys, event: "Shot Put", age: "9 & 10", name: "Jahleel Rollins", city: "Lansing", mark: "29' 0\"", year: 2014, set: 2014 }
-  - { gender: boys, event: "Shot Put", age: "11 & 12", name: "Isaiah Wasson", city: "Lansing", mark: "31' 7\"", year: 2009, set: 2009, history: [ { name: "Owen Schafer", mark: "31' 7\"", year: 2023, note: "tied" } ] }
+  - { gender: boys, event: "Shot Put", age: "11 & 12", name: "Owen Schafer", mark: "31' 7\"", year: 2023, set: 2023, history: [ { name: "Isaiah Wasson", city: "Lansing", mark: "31' 7\"", year: 2009, note: "original" } ] }
   - { gender: boys, event: "Shot Put", age: "13 & 14", name: "Matt Fedewa", city: "St Johns", mark: "44' 1\"", year: 2005, set: 2005 }
   - { gender: boys, event: "Shot Put", age: "15 & 16", name: "Caleb Feldpausch", city: "St Johns", mark: "44' 6\"", year: 2014, set: 2014 }
   - { gender: boys, event: "Shot Put", age: "17 & 18", name: "Rob Cushman", city: "Grand Ledge", mark: "47' 6\"", year: 1983, set: 1983 }
@@ -127,14 +127,14 @@ records:
   - { gender: boys, event: "High Jump", age: "19 - 29", name: "Chris Jimmerson", city: "Lansing", mark: "7' 0\"", year: 2011, set: 2011 }
   - { gender: boys, event: "High Jump", age: "30 - 39", name: "Rich White", city: "Lansing", mark: "6' 10\"", year: 2011, set: 2011 }
   - { gender: boys, event: "High Jump", age: "40 - 49", name: "Rich White", mark: "6' 1\"", year: 2023, set: 2023, history: [ { name: "Todd Compton", mark: "5' 2\"", year: 2004 } ] }
-  - { gender: boys, event: "High Jump", age: "50 - 59", name: "John Sawyer", city: "Eaton Rapids", mark: "4' 6\"", year: 2008, set: 2008, history: [ { name: "George Berry Sr", mark: "4' 6\"", year: 2022, note: "tied" }, { name: "Jim Pocan", mark: "4' 6\"", year: 2015, note: "co-holder (also 2018)" } ] }
+  - { gender: boys, event: "High Jump", age: "50 - 59", name: "George Berry Sr", mark: "4' 6\"", year: 2022, set: 2022, history: [ { name: "Jim Pocan", mark: "4' 6\"", year: 2015, note: "co-holder (also 2018)" }, { name: "John Sawyer", city: "Eaton Rapids", mark: "4' 6\"", year: 2008, note: "original" } ] }
 
   # --- Boys Pole Vault ---
   - { gender: boys, event: "Pole Vault", age: "13 & 14", name: "Adam Blue", city: "Grand Ledge", mark: "11' 6\"", year: 2018, set: 2018 }
   - { gender: boys, event: "Pole Vault", age: "15 & 16", name: "Jake Blankenship", mark: "14' 6\"", year: 2009, set: 2009 }
-  - { gender: boys, event: "Pole Vault", age: "17 & 18", name: "Toby VanPelt", city: "Owosso", mark: "14' 0\"", year: 1987, set: 1987, history: [ { name: "Adam Blue", mark: "14' 0\"", year: 2022, note: "tied" }, { name: "Isaac Skinner", mark: "14' 0\"", year: 2016, note: "co-holder" } ] }
+  - { gender: boys, event: "Pole Vault", age: "17 & 18", name: "Adam Blue", mark: "14' 0\"", year: 2022, set: 2022, history: [ { name: "Isaac Skinner", mark: "14' 0\"", year: 2016, note: "co-holder" }, { name: "Toby VanPelt", city: "Owosso", mark: "14' 0\"", year: 1987, note: "original" } ] }
   - { gender: boys, event: "Pole Vault", age: "19 - 29", name: "Landon Cosby", mark: "16' 3\"", year: 2023, set: 2023, history: [ { name: "Mark Smith", mark: "15' 6\"", year: 1991 } ] }
-  - { gender: boys, event: "Pole Vault", age: "30 - 39", name: "Matti Kilpelainen", mark: "13' 6\"", year: 1988, set: 1988, history: [ { name: "Justin Trombley", mark: "13' 6\"", year: 2017, note: "co-holder" } ] }
+  - { gender: boys, event: "Pole Vault", age: "30 - 39", name: "Justin Trombley", mark: "13' 6\"", year: 2017, set: 2017, history: [ { name: "Matti Kilpelainen", mark: "13' 6\"", year: 1988, note: "original" } ] }
   - { gender: boys, event: "Pole Vault", age: "40 - 49", name: "Andy Brown", city: "Laingsburg", mark: "10' 6\"", year: 2016, set: 2016 }
   - { gender: boys, event: "Pole Vault", age: "50 - 59", name: "Jon Large", city: "Belding", mark: "12' 0\"", year: 2011, set: 2011 }
 
@@ -245,7 +245,7 @@ records:
   - { gender: boys, event: "5000", age: "30 - 39", name: "Rock Campbell", city: "Lansing", mark: "16:23.7", year: 1983, set: 1983 }
   - { gender: boys, event: "5000", age: "40 - 49", name: "Rick Cahoon", city: "Shepard", mark: "16:59.0", year: 2018, set: 2018 }
   - { gender: boys, event: "5000", age: "50 - 59", name: "Wayne Oom", city: "Caledonia", mark: "18:59.0", year: 2019, set: 2019, history: [ { name: "Mike Hammond", mark: "19:23.1", year: 2017 } ] }
-  - { gender: boys, event: "5000", age: "60+", name: "Eric Stuber", city: "", mark: "23:15.0", year: 2025, set: 2025 }
+  - { gender: boys, event: "5000", age: "60+", name: "Eric Stuber", mark: "23:15.0", year: 2025, set: 2025 }
 
   # --- Boys 4x100 Relay ---
   - { gender: boys, event: "4x100 Relay", age: "5 & 6", members: "W. Lucio, W. Weber, H. Schulle, C. Therrian", mark: "1:46.40", year: 2022, set: 2022, note: "New age-group record (2022)." }
@@ -301,7 +301,7 @@ records:
   - { gender: girls, event: "Discus", age: "50 - 59", name: "Katherine Livengood", city: "Grand Blanc", mark: "64' 7\"", year: 2014, set: 2014 }
 
   # --- Girls Long Jump ---
-  - { gender: girls, event: "Long Jump", age: "4 & under", name: "Cadence Bull", city: "Grand Ledge", mark: "5' 0\"", year: 2016, set: 2016, history: [ { name: "Natalie Green", mark: "5' 0\"", year: 2023, note: "tied" } ] }
+  - { gender: girls, event: "Long Jump", age: "4 & under", name: "Natalie Green", mark: "5' 0\"", year: 2023, set: 2023, history: [ { name: "Cadence Bull", city: "Grand Ledge", mark: "5' 0\"", year: 2016, note: "original" } ] }
   - { gender: girls, event: "Long Jump", age: "5 & 6", name: "Cadence Bull", city: "Grand Ledge", mark: "8' 8\"", year: 2018, set: 2018 }
   - { gender: girls, event: "Long Jump", age: "7 & 8", name: "Violett Rowe-Porchia", mark: "10' 8\"", year: 2018, set: 2018 }
   - { gender: girls, event: "Long Jump", age: "9 & 10", name: "Morgan Hetherington", city: "Grand Ledge", mark: "12' 7.5\"", year: 2013, set: 2013 }
@@ -314,10 +314,10 @@ records:
   - { gender: girls, event: "Long Jump", age: "40 - 49", name: "Kathy Defever", city: "Ashley", mark: "14' 3.75\"", year: 2004, set: 2004 }
 
   # --- Girls High Jump ---
-  - { gender: girls, event: "High Jump", age: "7 & 8", name: "Mia Judd", city: "Grand Ledge", mark: "3' 4\"", year: 2012, set: 2012, history: [ { name: "Olivia Brown", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Bailey Powell", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Mandi Gordon", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Alexandra Steitz", mark: "3' 4\"", year: 2011, note: "co-holder" } ] }
-  - { gender: girls, event: "High Jump", age: "9 & 10", name: "Presious Robinson", city: "Lansing", mark: "3' 10\"", year: 2012, set: 2012, history: [ { name: "Izzy Hartzell", mark: "3' 10\"", year: 2018, note: "co-holder" } ] }
-  - { gender: girls, event: "High Jump", age: "11 & 12", name: "Amaya Ayers", city: "Laingsburg", mark: "4' 6\"", year: 2004, set: 2004, history: [ { name: "Tori Schiller", mark: "4' 6\"", year: 2005, note: "co-holder" } ] }
-  - { gender: girls, event: "High Jump", age: "13 & 14", name: "Jenelle Smith", city: "Lansing", mark: "4' 8\"", year: 2005, set: 2005, history: [ { name: "Carolyn Morgan", mark: "4' 8\"", year: 2014, note: "co-holder" } ] }
+  - { gender: girls, event: "High Jump", age: "7 & 8", name: "Olivia Brown", mark: "3' 4\"", year: 2018, set: 2018, history: [ { name: "Bailey Powell", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Mandi Gordon", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Mia Judd", city: "Grand Ledge", mark: "3' 4\"", year: 2012, note: "co-holder" }, { name: "Alexandra Steitz", mark: "3' 4\"", year: 2011, note: "original" } ] }
+  - { gender: girls, event: "High Jump", age: "9 & 10", name: "Izzy Hartzell", mark: "3' 10\"", year: 2018, set: 2018, history: [ { name: "Presious Robinson", city: "Lansing", mark: "3' 10\"", year: 2012, note: "original" } ] }
+  - { gender: girls, event: "High Jump", age: "11 & 12", name: "Tori Schiller", mark: "4' 6\"", year: 2005, set: 2005, history: [ { name: "Amaya Ayers", city: "Laingsburg", mark: "4' 6\"", year: 2004, note: "original" } ] }
+  - { gender: girls, event: "High Jump", age: "13 & 14", name: "Carolyn Morgan", mark: "4' 8\"", year: 2014, set: 2014, history: [ { name: "Jenelle Smith", city: "Lansing", mark: "4' 8\"", year: 2005, note: "original" } ] }
   - { gender: girls, event: "High Jump", age: "15 & 16", name: "Teaghan Thomas", mark: "5' 3\"", year: 2015, set: 2015 }
   - { gender: girls, event: "High Jump", age: "17 & 18", name: "Brenda Smith", city: "Carson City", mark: "5' 2\"", year: 1981, set: 1981 }
   - { gender: girls, event: "High Jump", age: "19 - 29", name: "Kathy Powers", city: "Reading", mark: "5' 3\"", year: 1977, set: 1977 }
@@ -327,7 +327,7 @@ records:
 
   # --- Girls Pole Vault ---
   - { gender: girls, event: "Pole Vault", age: "11 & 12", name: "Emma Springer", mark: "7' 6\"", year: 2018, set: 2018 }
-  - { gender: girls, event: "Pole Vault", age: "13 & 14", name: "Amanda Trouten", mark: "9' 6\"", year: 2006, set: 2006, history: [ { name: "Alyssa German", mark: "9' 6\"", year: 2015, note: "co-holder" } ] }
+  - { gender: girls, event: "Pole Vault", age: "13 & 14", name: "Alyssa German", mark: "9' 6\"", year: 2015, set: 2015, history: [ { name: "Amanda Trouten", mark: "9' 6\"", year: 2006, note: "original" } ] }
   - { gender: girls, event: "Pole Vault", age: "15 & 16", name: "Katie Blue", mark: "11' 0\"", year: 2023, set: 2023, history: [ { name: "Brianna Flowers", mark: "10' 0\"", year: 2010 }, { name: "Jackie Clark", mark: "10' 0\"", year: 2004 } ] }
   - { gender: girls, event: "Pole Vault", age: "17 & 18", name: "Carly Schiffer", city: "Ovid", mark: "11' 0\"", year: 2006, set: 2006 }
   - { gender: girls, event: "Pole Vault", age: "19 - 29", name: "Shelia McKenley", mark: "11' 6\"", year: 2017, set: 2017 }
