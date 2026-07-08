@@ -1955,3 +1955,135 @@
   .records-toggle { justify-content: center; }
   .records-search { max-width: none; }
 }
+
+// Records — drill-in history
+
+.records-row.has-history { cursor: pointer; }
+
+.records-disclosure {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: $royal-blue;
+  font-family: $font-body;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.3rem;
+  margin-left: 0.35rem;
+  border-radius: 4px;
+  vertical-align: middle;
+
+  &:hover { background: $light-blue; }
+  &:focus-visible { outline: 2px solid $royal-blue; outline-offset: 1px; }
+
+  &__chevron {
+    display: inline-block;
+    font-size: 0.7rem;
+    line-height: 1;
+    transition: transform 0.15s ease;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &[aria-expanded="true"] .records-disclosure__chevron { transform: rotate(90deg); }
+}
+
+.records-legend__chevron { color: $royal-blue; }
+
+.records-history > td {
+  padding: 0;
+  background: $off-white;
+}
+
+.records-history__inner {
+  padding: 0.75rem 1rem 0.9rem;
+  border-left: 3px solid $neon-green;
+}
+
+.records-history__heading {
+  margin: 0 0 0.5rem;
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  color: $text-light;
+}
+
+.records-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto auto;
+    grid-template-areas: "year who mark tag";
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+    padding: 0.32rem 0;
+    border-bottom: 1px dashed rgba(13, 27, 85, 0.12);
+    font-size: 0.9rem;
+
+    &:last-child { border-bottom: 0; }
+
+    &.is-current {
+      .records-timeline__year,
+      .records-timeline__mark { color: $royal-blue-dark; font-weight: 700; }
+    }
+  }
+
+  &__year {
+    grid-area: year;
+    font-variant-numeric: tabular-nums;
+    color: $text-mid;
+    font-weight: 600;
+  }
+
+  &__who { grid-area: who; min-width: 0; }
+
+  &__mark {
+    grid-area: mark;
+    font-variant-numeric: tabular-nums;
+    color: $royal-blue-dark;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__tag {
+    grid-area: tag;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: $text-light;
+    background: $light-blue;
+    border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+    white-space: nowrap;
+
+    &--current { color: $navy; background: $neon-green; }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .records-disclosure__label { display: none; }
+
+  .records-timeline__item {
+    grid-template-columns: 3rem 1fr;
+    grid-template-areas:
+      "year who"
+      "year mark"
+      "year tag";
+    row-gap: 0.15rem;
+  }
+
+  .records-timeline__mark,
+  .records-timeline__tag { justify-self: start; }
+}

@@ -12,7 +12,7 @@
 #     2023 winning marks against the standing record.
 #
 # KNOWN GAPS (not yet incorporated — records were broken but specifics are not
-# available online; request the current master PDF from crowe387@gmail.com):
+# available online:
 #   - 2020 & 2021: no meets held (COVID).
 #   - 2024 (49th annual): "33 new records were broken" — only an emailed PDF + athlete
 #     photos were posted; no result data online.
@@ -22,6 +22,9 @@
 #
 # FIELDS: gender, event, age, name, city (optional), mark, year, set (source year of
 #   the current record), note (optional). `members` is used for relays.
+#   `history` (optional) is a list of prior/co- holders, newest first — each entry has
+#   name (or members) / city / mark / year / note (e.g. "tied", "co-holder"). It powers
+#   the drill-in timeline on the records page; add older holders here as they surface.
 #
 # FLAGGED ITEMS (see notes inline): a few 2023 sheet-highlighted marks did not actually
 #   surpass the documented standing record; the faster documented mark is kept and the
@@ -30,7 +33,6 @@
 meta:
   title: "Grand Ledge Summer Track Championship Records"
   coverage: "1973–2023 (47th/2022 and 48th/2023 updates applied)"
-  contact_for_updates: "crowe387@gmail.com"
   facebook: "https://www.facebook.com/GrandLedgesummertrack"
 
 event_order:
@@ -65,7 +67,8 @@ age_order:
   - "19 - 29"
   - "30 - 39"
   - "40 - 49"
-  - "50+"
+  - "50 - 59"
+  - "60+"
 
 records:
 
@@ -78,27 +81,27 @@ records:
   - { gender: boys, event: "Shot Put", age: "5 & 6", name: "Pierce Wison", city: "Flint", mark: "4' 10\"", year: 2016, set: 2016 }
   - { gender: boys, event: "Shot Put", age: "7 & 8", name: "Daniel Luckett", city: "East Lansing", mark: "27.5", year: 2017, set: 2017, note: "Mark transcribed verbatim from 2018 PDF (likely 27' 5\")." }
   - { gender: boys, event: "Shot Put", age: "9 & 10", name: "Jahleel Rollins", city: "Lansing", mark: "29' 0\"", year: 2014, set: 2014 }
-  - { gender: boys, event: "Shot Put", age: "11 & 12", name: "Isaiah Wasson", city: "Lansing", mark: "31' 7\"", year: 2009, set: 2009, note: "Tied in 2023 by Owen Schafer (31' 7\")." }
+  - { gender: boys, event: "Shot Put", age: "11 & 12", name: "Isaiah Wasson", city: "Lansing", mark: "31' 7\"", year: 2009, set: 2009, history: [ { name: "Owen Schafer", mark: "31' 7\"", year: 2023, note: "tied" } ] }
   - { gender: boys, event: "Shot Put", age: "13 & 14", name: "Matt Fedewa", city: "St Johns", mark: "44' 1\"", year: 2005, set: 2005 }
   - { gender: boys, event: "Shot Put", age: "15 & 16", name: "Caleb Feldpausch", city: "St Johns", mark: "44' 6\"", year: 2014, set: 2014 }
   - { gender: boys, event: "Shot Put", age: "17 & 18", name: "Rob Cushman", city: "Grand Ledge", mark: "47' 6\"", year: 1983, set: 1983 }
   - { gender: boys, event: "Shot Put", age: "19 - 29", name: "Rob Cushman", city: "Grand Ledge", mark: "49' 4.5\"", year: 1986, set: 1986 }
   - { gender: boys, event: "Shot Put", age: "30 - 39", name: "Chris Young", city: "Ionia", mark: "52' 3\"", year: 2004, set: 2004 }
   - { gender: boys, event: "Shot Put", age: "40 - 49", name: "Robert O'Higgins", city: "Owosso", mark: "42' 8.75\"", year: 2002, set: 2002 }
-  - { gender: boys, event: "Shot Put", age: "50+", name: "Hilary Goerge", city: "Lansing", mark: "47' 6\"", year: 2009, set: 2009 }
+  - { gender: boys, event: "Shot Put", age: "50 - 59", name: "Hilary Goerge", city: "Lansing", mark: "47' 6\"", year: 2009, set: 2009 }
 
   # --- Boys Discus ---
   - { gender: boys, event: "Discus", age: "5 & 6", name: "Charles Mitchel", mark: "8' 5\"", year: 2023, set: 2023, note: "New age-group record (2023)." }
   - { gender: boys, event: "Discus", age: "7 & 8", name: "Jahleel Rollins", city: "Lansing", mark: "36' 5\"", year: 2013, set: 2013 }
   - { gender: boys, event: "Discus", age: "9 & 10", name: "Jayden Green", city: "Lansing", mark: "55' 6\"", year: 2010, set: 2010 }
-  - { gender: boys, event: "Discus", age: "11 & 12", name: "Owen Sarzynski", mark: "82'", year: 2023, set: 2023, note: "New record 2023 (prev. Anthony Cook 73' 3\", 2009)." }
+  - { gender: boys, event: "Discus", age: "11 & 12", name: "Owen Sarzynski", mark: "82'", year: 2023, set: 2023, history: [ { name: "Anthony Cook", mark: "73' 3\"", year: 2009 } ] }
   - { gender: boys, event: "Discus", age: "13 & 14", name: "Matt Fedewa", city: "St Johns", mark: "116' 3\"", year: 2011, set: 2011 }
-  - { gender: boys, event: "Discus", age: "15 & 16", name: "Jackson Shaltry", mark: "138' 3\"", year: 2023, set: 2023, note: "New record 2023 (prev. Chris Roberts 120' 1\", 2010)." }
+  - { gender: boys, event: "Discus", age: "15 & 16", name: "Jackson Shaltry", mark: "138' 3\"", year: 2023, set: 2023, history: [ { name: "Chris Roberts", mark: "120' 1\"", year: 2010 } ] }
   - { gender: boys, event: "Discus", age: "17 & 18", name: "Nathan Spitzley", mark: "143' 1\"", year: 2018, set: 2018 }
   - { gender: boys, event: "Discus", age: "19 - 29", name: "Chris Roberts", city: "Lansing", mark: "154' 1\"", year: 2016, set: 2016 }
   - { gender: boys, event: "Discus", age: "30 - 39", name: "Chris Young", city: "Ionia", mark: "139' 8\"", year: 2004, set: 2004 }
   - { gender: boys, event: "Discus", age: "40 - 49", name: "Robert O'Higgins", city: "Owosso", mark: "144' 4\"", year: 2002, set: 2002 }
-  - { gender: boys, event: "Discus", age: "50+", name: "Hilary Goerge", city: "Lansing", mark: "150' 6\"", year: 2010, set: 2010 }
+  - { gender: boys, event: "Discus", age: "50 - 59", name: "Hilary Goerge", city: "Lansing", mark: "150' 6\"", year: 2010, set: 2010 }
 
   # --- Boys Long Jump ---
   - { gender: boys, event: "Long Jump", age: "4 & under", name: "Jack Bull", city: "Grand Ledge", mark: "5' 7.5\"", year: 2013, set: 2013 }
@@ -112,31 +115,31 @@ records:
   - { gender: boys, event: "Long Jump", age: "19 - 29", name: "Marcus Sanders", city: "Lansing", mark: "22' 9\"", year: 1982, set: 1982 }
   - { gender: boys, event: "Long Jump", age: "30 - 39", name: "Christopher Price", city: "Lansing", mark: "18' 4.5\"", year: 1989, set: 1989 }
   - { gender: boys, event: "Long Jump", age: "40 - 49", name: "Bill Barber", city: "Laingsburg", mark: "17' 9.5\"", year: 2009, set: 2009 }
-  - { gender: boys, event: "Long Jump", age: "50+", name: "Russ Jorgenson", city: "Flint", mark: "12' 11.5\"", year: 2017, set: 2017 }
+  - { gender: boys, event: "Long Jump", age: "50 - 59", name: "Russ Jorgenson", city: "Flint", mark: "12' 11.5\"", year: 2017, set: 2017 }
 
   # --- Boys High Jump ---
   - { gender: boys, event: "High Jump", age: "7 & 8", name: "Jayce McAllister", mark: "3' 6\"", year: 2015, set: 2015 }
-  - { gender: boys, event: "High Jump", age: "9 & 10", name: "Miles Brown", mark: "4' 6\"", year: 2022, set: 2022, note: "New record 2022 (prev. 4' 0\": Andrel Anthony Jr 2012, Connor Long 2013, Daniel Bartkowski 2006)." }
-  - { gender: boys, event: "High Jump", age: "11 & 12", name: "Miles Brown", mark: "5' 0\"", year: 2023, set: 2023, note: "New record 2023 (prev. T'Mondrae Calhoun 4' 10\", 2010)." }
+  - { gender: boys, event: "High Jump", age: "9 & 10", name: "Miles Brown", mark: "4' 6\"", year: 2022, set: 2022, history: [ { name: "Connor Long", mark: "4' 0\"", year: 2013 }, { name: "Andrel Anthony Jr", mark: "4' 0\"", year: 2012 }, { name: "Daniel Bartkowski", mark: "4' 0\"", year: 2006 } ] }
+  - { gender: boys, event: "High Jump", age: "11 & 12", name: "Miles Brown", mark: "5' 0\"", year: 2023, set: 2023, history: [ { name: "T'Mondrae Calhoun", mark: "4' 10\"", year: 2010 } ] }
   - { gender: boys, event: "High Jump", age: "13 & 14", name: "Jackson Barnes", mark: "5' 10\"", year: 2015, set: 2015 }
-  - { gender: boys, event: "High Jump", age: "15 & 16", name: "Isaiah Woloszyn", mark: "6' 1\"", year: 2023, set: 2023, note: "New record 2023 (prev. Brydan Biddinger 6' 0\", 2016)." }
+  - { gender: boys, event: "High Jump", age: "15 & 16", name: "Isaiah Woloszyn", mark: "6' 1\"", year: 2023, set: 2023, history: [ { name: "Brydan Biddinger", mark: "6' 0\"", year: 2016 } ] }
   - { gender: boys, event: "High Jump", age: "17 & 18", name: "Scott Eagle", city: "Fowlerville", mark: "6' 5\"", year: 1998, set: 1998 }
   - { gender: boys, event: "High Jump", age: "19 - 29", name: "Chris Jimmerson", city: "Lansing", mark: "7' 0\"", year: 2011, set: 2011 }
   - { gender: boys, event: "High Jump", age: "30 - 39", name: "Rich White", city: "Lansing", mark: "6' 10\"", year: 2011, set: 2011 }
-  - { gender: boys, event: "High Jump", age: "40 - 49", name: "Rich White", mark: "6' 1\"", year: 2023, set: 2023, note: "New record 2023 (prev. Todd Compton 5' 2\", 2004)." }
-  - { gender: boys, event: "High Jump", age: "50+", name: "John Sawyer", city: "Eaton Rapids", mark: "4' 6\"", year: 2008, set: 2008, note: "Co-held: Jim Pocan 4' 6\" (2015/2018); tied 2022 by George Berry Sr (4' 6\")." }
+  - { gender: boys, event: "High Jump", age: "40 - 49", name: "Rich White", mark: "6' 1\"", year: 2023, set: 2023, history: [ { name: "Todd Compton", mark: "5' 2\"", year: 2004 } ] }
+  - { gender: boys, event: "High Jump", age: "50 - 59", name: "John Sawyer", city: "Eaton Rapids", mark: "4' 6\"", year: 2008, set: 2008, history: [ { name: "George Berry Sr", mark: "4' 6\"", year: 2022, note: "tied" }, { name: "Jim Pocan", mark: "4' 6\"", year: 2015, note: "co-holder (also 2018)" } ] }
 
   # --- Boys Pole Vault ---
   - { gender: boys, event: "Pole Vault", age: "13 & 14", name: "Adam Blue", city: "Grand Ledge", mark: "11' 6\"", year: 2018, set: 2018 }
   - { gender: boys, event: "Pole Vault", age: "15 & 16", name: "Jake Blankenship", mark: "14' 6\"", year: 2009, set: 2009 }
-  - { gender: boys, event: "Pole Vault", age: "17 & 18", name: "Toby VanPelt", city: "Owosso", mark: "14' 0\"", year: 1987, set: 1987, note: "Co-held: Isaac Skinner 14' 0\" (2016); tied 2022 by Adam Blue (14' 0\")." }
-  - { gender: boys, event: "Pole Vault", age: "19 - 29", name: "Landon Cosby", mark: "16' 3\"", year: 2023, set: 2023, note: "New record 2023 (prev. Mark Smith 15' 6\", 1991)." }
-  - { gender: boys, event: "Pole Vault", age: "30 - 39", name: "Matti Kilpelainen", mark: "13' 6\"", year: 1988, set: 1988, note: "Co-held: Justin Trombley 13' 6\" (2017)." }
+  - { gender: boys, event: "Pole Vault", age: "17 & 18", name: "Toby VanPelt", city: "Owosso", mark: "14' 0\"", year: 1987, set: 1987, history: [ { name: "Adam Blue", mark: "14' 0\"", year: 2022, note: "tied" }, { name: "Isaac Skinner", mark: "14' 0\"", year: 2016, note: "co-holder" } ] }
+  - { gender: boys, event: "Pole Vault", age: "19 - 29", name: "Landon Cosby", mark: "16' 3\"", year: 2023, set: 2023, history: [ { name: "Mark Smith", mark: "15' 6\"", year: 1991 } ] }
+  - { gender: boys, event: "Pole Vault", age: "30 - 39", name: "Matti Kilpelainen", mark: "13' 6\"", year: 1988, set: 1988, history: [ { name: "Justin Trombley", mark: "13' 6\"", year: 2017, note: "co-holder" } ] }
   - { gender: boys, event: "Pole Vault", age: "40 - 49", name: "Andy Brown", city: "Laingsburg", mark: "10' 6\"", year: 2016, set: 2016 }
-  - { gender: boys, event: "Pole Vault", age: "50+", name: "Jon Large", city: "Belding", mark: "12' 0\"", year: 2011, set: 2011 }
+  - { gender: boys, event: "Pole Vault", age: "50 - 59", name: "Jon Large", city: "Belding", mark: "12' 0\"", year: 2011, set: 2011 }
 
   # --- Boys 55 Hurdles ---
-  - { gender: boys, event: "55 Hurdles", age: "11 & 12", name: "Bobby Horton", mark: "9.11", year: 2023, set: 2023, note: "New record 2023 (prev. Carter Lance 10.29, 2018)." }
+  - { gender: boys, event: "55 Hurdles", age: "11 & 12", name: "Bobby Horton", mark: "9.11", year: 2023, set: 2023, history: [ { name: "Carter Lance", mark: "10.29", year: 2018 } ] }
   - { gender: boys, event: "55 Hurdles", age: "13 & 14", name: "Kentre Patterson", city: "Lansing", mark: "7.72", year: 2013, set: 2013 }
 
   # --- Boys 100 Hurdles ---
@@ -148,7 +151,7 @@ records:
   - { gender: boys, event: "110 Hurdles", age: "17 & 18", name: "Rees Nemeth", city: "Lansing", mark: "14.55", year: 2017, set: 2017 }
   - { gender: boys, event: "110 Hurdles", age: "19 - 29", name: "Chris Jimmerman", city: "Lansing", mark: "14.57", year: 2009, set: 2009 }
   - { gender: boys, event: "110 Hurdles", age: "30 - 39", name: "Charles Pollard", city: "Haslett", mark: "14.4", year: 1983, set: 1983, note: "Time marked uncertain in 2018 PDF." }
-  - { gender: boys, event: "110 Hurdles", age: "50+", name: "Andy Brown", mark: "24.51", year: 2023, set: 2023, note: "New age-group record (2023)." }
+  - { gender: boys, event: "110 Hurdles", age: "50 - 59", name: "Andy Brown", mark: "24.51", year: 2023, set: 2023, note: "New age-group record (2023)." }
 
   # --- Boys 100 ---
   - { gender: boys, event: "100", age: "4 & under", name: "Christian Barr", mark: "20.87", year: 2017, set: 2017 }
@@ -156,13 +159,13 @@ records:
   - { gender: boys, event: "100", age: "7 & 8", name: "Jayce McAllister", mark: "14.56", year: 2015, set: 2015 }
   - { gender: boys, event: "100", age: "9 & 10", name: "Ethan Chariot", mark: "13.93", year: 2018, set: 2018 }
   - { gender: boys, event: "100", age: "11 & 12", name: "Evan Walker", mark: "12.04", year: 2018, set: 2018 }
-  - { gender: boys, event: "100", age: "13 & 14", name: "Levi Yeah", mark: "11.12", year: 2023, set: 2023, note: "New record 2023 (prev. Alex Hosey 11.51, 2017)." }
+  - { gender: boys, event: "100", age: "13 & 14", name: "Levi Yeah", mark: "11.12", year: 2023, set: 2023, history: [ { name: "Alex Hosey", mark: "11.51", year: 2017 } ] }
   - { gender: boys, event: "100", age: "15 & 16", name: "Jeremiah Fleming", city: "East Lansing", mark: "10.95", year: 2009, set: 2009 }
   - { gender: boys, event: "100", age: "17 & 18", name: "David Grzesek", city: "Jackson", mark: "10.74", year: 2009, set: 2009 }
   - { gender: boys, event: "100", age: "19 - 29", name: "Derick Smith", city: "Flint", mark: "10.6", year: 1982, set: 1982 }
   - { gender: boys, event: "100", age: "30 - 39", name: "Jameel Jones", city: "Lansing", mark: "11.18", year: 2017, set: 2017 }
-  - { gender: boys, event: "100", age: "40 - 49", name: "J.J. Jameel Jones", mark: "11.82", year: 2023, set: 2023, note: "New record 2023 (prev. Harris Edwards Jr 12.25, 2005)." }
-  - { gender: boys, event: "100", age: "50+", name: "Michael Crouch", mark: "12.38", year: 2015, set: 2015 }
+  - { gender: boys, event: "100", age: "40 - 49", name: "J.J. Jameel Jones", mark: "11.82", year: 2023, set: 2023, history: [ { name: "Harris Edwards Jr", mark: "12.25", year: 2005 } ] }
+  - { gender: boys, event: "100", age: "50 - 59", name: "Michael Crouch", mark: "12.38", year: 2015, set: 2015 }
 
   # --- Boys 200 ---
   - { gender: boys, event: "200", age: "4 & under", name: "Christian Ferauson", mark: "45.46", year: 2017, set: 2017 }
@@ -170,13 +173,13 @@ records:
   - { gender: boys, event: "200", age: "7 & 8", name: "Mason Woods", city: "East Lansing", mark: "31.5", year: 2012, set: 2012 }
   - { gender: boys, event: "200", age: "9 & 10", name: "Ethan Charoit", mark: "28.34", year: 2018, set: 2018 }
   - { gender: boys, event: "200", age: "11 & 12", name: "Allen Brown", mark: "25.39", year: 2015, set: 2015 }
-  - { gender: boys, event: "200", age: "13 & 14", name: "Levi Yeah", mark: "22.78", year: 2023, set: 2023, note: "New record 2023 (prev. Allen Brown 23.41, 2017)." }
+  - { gender: boys, event: "200", age: "13 & 14", name: "Levi Yeah", mark: "22.78", year: 2023, set: 2023, history: [ { name: "Allen Brown", mark: "23.41", year: 2017 } ] }
   - { gender: boys, event: "200", age: "15 & 16", name: "James Jackson", city: "Jackson", mark: "22.5", year: 2005, set: 2005 }
   - { gender: boys, event: "200", age: "17 & 18", name: "Marice Allen", mark: "22.12", year: 2016, set: 2016 }
   - { gender: boys, event: "200", age: "19 - 29", name: "Derick Smith", city: "Flint", mark: "22.1", year: 1982, set: 1982 }
   - { gender: boys, event: "200", age: "30 - 39", name: "Jameel Jones", city: "Lansing", mark: "23.5", year: 2017, set: 2017 }
   - { gender: boys, event: "200", age: "40 - 49", name: "Sam Hosey", city: "East Lansing", mark: "25.04", year: 2014, set: 2014 }
-  - { gender: boys, event: "200", age: "50+", name: "Michael Crouch", mark: "25.39", year: 2015, set: 2015 }
+  - { gender: boys, event: "200", age: "50 - 59", name: "Michael Crouch", mark: "25.39", year: 2015, set: 2015 }
 
   # --- Boys 400 ---
   - { gender: boys, event: "400", age: "4 & under", name: "Tonal Saint-Dic", mark: "2:00.0", year: 2018, set: 2018 }
@@ -189,8 +192,8 @@ records:
   - { gender: boys, event: "400", age: "17 & 18", name: "Tavarrio Davis", city: "Lansing", mark: "49.0", year: 2010, set: 2010 }
   - { gender: boys, event: "400", age: "19 - 29", name: "George Yoanides", city: "Lansing", mark: "48.6", year: 1985, set: 1985 }
   - { gender: boys, event: "400", age: "30 - 39", name: "Dolan Street", city: "Ypsilanti", mark: "52.8", year: 1985, set: 1985 }
-  - { gender: boys, event: "400", age: "40 - 49", name: "Noah Filipiak", mark: "56.75", year: 2023, set: 2023, note: "FLAG: beats prev. Jevon Williams 58.1 (2013) but not highlighted on 2023 sheet — verify against master PDF." }
-  - { gender: boys, event: "400", age: "50+", name: "Tim Lambrecht", city: "Alma", mark: "61.3", year: 2014, set: 2014 }
+  - { gender: boys, event: "400", age: "40 - 49", name: "Noah Filipiak", mark: "56.75", year: 2023, set: 2023, note: "FLAG: beats prev. Jevon Williams 58.1 (2013) but not highlighted on 2023 sheet — verify against master PDF.", history: [ { name: "Jevon Williams", mark: "58.1", year: 2013 } ] }
+  - { gender: boys, event: "400", age: "50 - 59", name: "Tim Lambrecht", city: "Alma", mark: "61.3", year: 2014, set: 2014 }
 
   # --- Boys 800 ---
   - { gender: boys, event: "800", age: "5 & 6", name: "Kameron Amunga", mark: "3:24.5", year: 2014, set: 2014 }
@@ -203,7 +206,7 @@ records:
   - { gender: boys, event: "800", age: "19 - 29", name: "Andrew Middleton", city: "Holt", mark: "1:54.4", year: 2014, set: 2014 }
   - { gender: boys, event: "800", age: "30 - 39", name: "BJ Tomanek", city: "Shepard", mark: "2:04.2", year: 2018, set: 2018 }
   - { gender: boys, event: "800", age: "40 - 49", name: "Brendon Thiede", mark: "2:24.7", year: 2018, set: 2018 }
-  - { gender: boys, event: "800", age: "50+", name: "Bill Barber", city: "Laingsburg", mark: "2:14.0", year: 2009, set: 2009 }
+  - { gender: boys, event: "800", age: "50 - 59", name: "Bill Barber", city: "Laingsburg", mark: "2:14.0", year: 2009, set: 2009 }
 
   # --- Boys 1600 ---
   - { gender: boys, event: "1600", age: "5 & 6", name: "Wyatt Werner", mark: "7:23.1", year: 2015, set: 2015 }
@@ -215,23 +218,24 @@ records:
   - { gender: boys, event: "1600", age: "17 & 18", name: "Steve Ostrovich", city: "Jackson", mark: "4:40.4", year: 1980, set: 1980 }
   - { gender: boys, event: "1600", age: "19 - 29", name: "Peter Vrobel", city: "East Lansing", mark: "4:22.4", year: 1983, set: 1983 }
   - { gender: boys, event: "1600", age: "30 - 39", name: "Donald Richmand", city: "Portland", mark: "4:43.8", year: 2016, set: 2016 }
-  - { gender: boys, event: "1600", age: "40 - 49", name: "Lecois Hoffman", mark: "5:11.36", year: 2023, set: 2023, note: "FLAG: beats prev. Bob Bates 5:16.1 (2017) but not clearly highlighted on 2023 sheet — verify against master PDF." }
-  - { gender: boys, event: "1600", age: "50+", name: "Tim Lambrecht", city: "Alma", mark: "5:05.3", year: 2013, set: 2013 }
+  - { gender: boys, event: "1600", age: "40 - 49", name: "Lecois Hoffman", mark: "5:11.36", year: 2023, set: 2023, note: "FLAG: beats prev. Bob Bates 5:16.1 (2017) but not clearly highlighted on 2023 sheet — verify against master PDF.", history: [ { name: "Bob Bates", mark: "5:16.1", year: 2017 } ] }
+  - { gender: boys, event: "1600", age: "50 - 59", name: "Tim Lambrecht", city: "Alma", mark: "5:05.3", year: 2013, set: 2013 }
 
   # --- Boys 3200 ---
   - { gender: boys, event: "3200", age: "5 & 6", name: "Noah Thiede", mark: "19:04.1", year: 2022, set: 2022, note: "New age-group record (2022)." }
   - { gender: boys, event: "3200", age: "7 & 8", name: "Lincoln Beck", mark: "14:00.0", year: 2017, set: 2017 }
   - { gender: boys, event: "3200", age: "9 & 10", name: "Ethan Powell", mark: "12:31.8", year: 2018, set: 2018 }
   - { gender: boys, event: "3200", age: "11 & 12", name: "Carter Colligan", city: "East Lansing", mark: "12:13.0", year: 2013, set: 2013 }
-  - { gender: boys, event: "3200", age: "13 & 14", name: "Bryce Cahoon", mark: "10:37.4", year: 2022, set: 2022, note: "New record 2022 (prev. Manny Edwards 10:48.0, 2017)." }
+  - { gender: boys, event: "3200", age: "13 & 14", name: "Bryce Cahoon", mark: "10:37.4", year: 2022, set: 2022, history: [ { name: "Manny Edwards", mark: "10:48.0", year: 2017 } ] }
   - { gender: boys, event: "3200", age: "15 & 16", name: "Immanuel Edwards", mark: "10:25.9", year: 2018, set: 2018 }
   - { gender: boys, event: "3200", age: "17 & 18", name: "Tim Young", city: "Saranac", mark: "9:44.9", year: 2014, set: 2014 }
   - { gender: boys, event: "3200", age: "19 - 29", name: "Jeff Austin-Winter", mark: "9:31.8", year: 2014, set: 2014 }
   - { gender: boys, event: "3200", age: "30 - 39", name: "Jake Crowe", city: "Grand Ledge", mark: "9:20.1", year: 2012, set: 2012 }
-  - { gender: boys, event: "3200", age: "40 - 49", name: "Rick Cahoon", mark: "10:29.0", year: 2022, set: 2022, note: "New record 2022 (prev. Michael Kotman 11:22.7, 2018)." }
-  - { gender: boys, event: "3200", age: "50+", name: "Wayne Oom", mark: "11:16.1", year: 2018, set: 2018 }
+  - { gender: boys, event: "3200", age: "40 - 49", name: "Rick Cahoon", mark: "10:29.0", year: 2022, set: 2022, history: [ { name: "Michael Kotman", mark: "11:22.7", year: 2018 } ] }
+  - { gender: boys, event: "3200", age: "50 - 59", name: "Wayne Oom", mark: "11:16.1", year: 2018, set: 2018 }
 
   # --- Boys 5000 ---
+  - { gender: boys, event: "5000", age: "7 & 8", name: "Liam Gray", city: "Dewitt", mark: "26:29.5", year: 2024, set: 2024 }
   - { gender: boys, event: "5000", age: "9 & 10", name: "Ethan Powell", city: "Dewitt", mark: "19:07.1", year: 2018, set: 2018 }
   - { gender: boys, event: "5000", age: "11 & 12", name: "Espen Lehnst", city: "Haslett", mark: "17:21.6", year: 2016, set: 2016 }
   - { gender: boys, event: "5000", age: "13 & 14", name: "Espen Lehnst", city: "Haslett", mark: "17:10.0", year: 2017, set: 2017 }
@@ -240,7 +244,8 @@ records:
   - { gender: boys, event: "5000", age: "19 - 29", name: "Bill Boguslawski", city: "Wyoming", mark: "15:00.2", year: 1984, set: 1984 }
   - { gender: boys, event: "5000", age: "30 - 39", name: "Rock Campbell", city: "Lansing", mark: "16:23.7", year: 1983, set: 1983 }
   - { gender: boys, event: "5000", age: "40 - 49", name: "Rick Cahoon", city: "Shepard", mark: "16:59.0", year: 2018, set: 2018 }
-  - { gender: boys, event: "5000", age: "50+", name: "Mike Hammond", city: "Potterville", mark: "19:23.1", year: 2017, set: 2017 }
+  - { gender: boys, event: "5000", age: "50 - 59", name: "Wayne Oom", city: "Caledonia", mark: "18:59.0", year: 2019, set: 2019, history: [ { name: "Mike Hammond", mark: "19:23.1", year: 2017 } ] }
+  - { gender: boys, event: "5000", age: "60+", name: "Eric Stuber", city: "", mark: "23:15.0", year: 2025, set: 2025 }
 
   # --- Boys 4x100 Relay ---
   - { gender: boys, event: "4x100 Relay", age: "5 & 6", members: "W. Lucio, W. Weber, H. Schulle, C. Therrian", mark: "1:46.40", year: 2022, set: 2022, note: "New age-group record (2022)." }
@@ -251,14 +256,14 @@ records:
   - { gender: boys, event: "4x100 Relay", age: "17 & 18", mark: "46.8", year: 2004, set: 2004 }
   - { gender: boys, event: "4x100 Relay", age: "30 - 39", mark: "50.12", year: 2018, set: 2018 }
   - { gender: boys, event: "4x100 Relay", age: "40 - 49", mark: "51.0", year: 2004, set: 2004 }
-  - { gender: boys, event: "4x100 Relay", age: "50+", mark: "59.41", year: 2018, set: 2018 }
+  - { gender: boys, event: "4x100 Relay", age: "50 - 59", mark: "59.41", year: 2018, set: 2018 }
 
   # --- Boys 4x400 Relay ---
   - { gender: boys, event: "4x400 Relay", age: "7 & 8", mark: "6:17.0", year: 2014, set: 2014 }
   - { gender: boys, event: "4x400 Relay", age: "9 & 10", mark: "5:27.0", year: 2015, set: 2015 }
   - { gender: boys, event: "4x400 Relay", age: "11 & 12", mark: "4:59.9", year: 1983, set: 1983 }
-  - { gender: boys, event: "4x400 Relay", age: "13 & 14", members: "Cullins, Baker, Oberlin, Smith", mark: "4:02.54", year: 2023, set: 2023, note: "New record 2023 (prev. 4:07.4, 1984)." }
-  - { gender: boys, event: "4x400 Relay", age: "15 & 16", members: "Mitchell, Stuber, Aaron C., Wright", mark: "3:57.90", year: 2023, set: 2023, note: "New record 2023 (prev. 4:19.2, 2015)." }
+  - { gender: boys, event: "4x400 Relay", age: "13 & 14", members: "Cullins, Baker, Oberlin, Smith", mark: "4:02.54", year: 2023, set: 2023, history: [ { mark: "4:07.4", year: 1984 } ] }
+  - { gender: boys, event: "4x400 Relay", age: "15 & 16", members: "Mitchell, Stuber, Aaron C., Wright", mark: "3:57.90", year: 2023, set: 2023, history: [ { mark: "4:19.2", year: 2015 } ] }
   - { gender: boys, event: "4x400 Relay", age: "17 & 18", mark: "3:44.4", year: 1978, set: 1978 }
   - { gender: boys, event: "4x400 Relay", age: "19 - 29", mark: "3:28.8", year: 1985, set: 1985 }
   - { gender: boys, event: "4x400 Relay", age: "30 - 39", mark: "3:28.9", year: 1992, set: 1992 }
@@ -280,7 +285,7 @@ records:
   - { gender: girls, event: "Shot Put", age: "19 - 29", name: "Sonya Payne", city: "Ann Arbor", mark: "42' 2\"", year: 1986, set: 1986 }
   - { gender: girls, event: "Shot Put", age: "30 - 39", name: "Jenny Sedlacek", city: "Laingsburg", mark: "33' 3\"", year: 2016, set: 2016 }
   - { gender: girls, event: "Shot Put", age: "40 - 49", name: "Sara Schaibly", mark: "34' 2\"", year: 2017, set: 2017 }
-  - { gender: girls, event: "Shot Put", age: "50+", name: "Katherine Livengood", city: "Grand Blanc", mark: "28' 3\"", year: 2014, set: 2014 }
+  - { gender: girls, event: "Shot Put", age: "50 - 59", name: "Katherine Livengood", city: "Grand Blanc", mark: "28' 3\"", year: 2014, set: 2014 }
 
   # --- Girls Discus ---
   - { gender: girls, event: "Discus", age: "5 & 6", name: "Ashlee Whitten", city: "Lansing", mark: "9' 11\"", year: 2014, set: 2014 }
@@ -293,10 +298,10 @@ records:
   - { gender: girls, event: "Discus", age: "19 - 29", name: "Kaylee Finney", city: "Charlotte", mark: "138' 6\"", year: 2017, set: 2017 }
   - { gender: girls, event: "Discus", age: "30 - 39", name: "Jenny Sedlacek", city: "Laingsburg", mark: "98' 10\"", year: 2016, set: 2016 }
   - { gender: girls, event: "Discus", age: "40 - 49", name: "Sara Schaibly", mark: "103' 3\"", year: 2017, set: 2017 }
-  - { gender: girls, event: "Discus", age: "50+", name: "Katherine Livengood", city: "Grand Blanc", mark: "64' 7\"", year: 2014, set: 2014 }
+  - { gender: girls, event: "Discus", age: "50 - 59", name: "Katherine Livengood", city: "Grand Blanc", mark: "64' 7\"", year: 2014, set: 2014 }
 
   # --- Girls Long Jump ---
-  - { gender: girls, event: "Long Jump", age: "4 & under", name: "Cadence Bull", city: "Grand Ledge", mark: "5' 0\"", year: 2016, set: 2016, note: "Tied in 2023 by Natalie Green (5' 0\")." }
+  - { gender: girls, event: "Long Jump", age: "4 & under", name: "Cadence Bull", city: "Grand Ledge", mark: "5' 0\"", year: 2016, set: 2016, history: [ { name: "Natalie Green", mark: "5' 0\"", year: 2023, note: "tied" } ] }
   - { gender: girls, event: "Long Jump", age: "5 & 6", name: "Cadence Bull", city: "Grand Ledge", mark: "8' 8\"", year: 2018, set: 2018 }
   - { gender: girls, event: "Long Jump", age: "7 & 8", name: "Violett Rowe-Porchia", mark: "10' 8\"", year: 2018, set: 2018 }
   - { gender: girls, event: "Long Jump", age: "9 & 10", name: "Morgan Hetherington", city: "Grand Ledge", mark: "12' 7.5\"", year: 2013, set: 2013 }
@@ -309,24 +314,24 @@ records:
   - { gender: girls, event: "Long Jump", age: "40 - 49", name: "Kathy Defever", city: "Ashley", mark: "14' 3.75\"", year: 2004, set: 2004 }
 
   # --- Girls High Jump ---
-  - { gender: girls, event: "High Jump", age: "7 & 8", name: "Mia Judd", city: "Grand Ledge", mark: "3' 4\"", year: 2012, set: 2012, note: "Co-held: Alexandra Steitz (2011), Olivia Brown (2018), Bailey Powell (2018), Mandi Gordon (2018) — all 3' 4\"." }
-  - { gender: girls, event: "High Jump", age: "9 & 10", name: "Presious Robinson", city: "Lansing", mark: "3' 10\"", year: 2012, set: 2012, note: "Co-held: Izzy Hartzell 3' 10\" (2018)." }
-  - { gender: girls, event: "High Jump", age: "11 & 12", name: "Amaya Ayers", city: "Laingsburg", mark: "4' 6\"", year: 2004, set: 2004, note: "Co-held: Tori Schiller 4' 6\" (2005)." }
-  - { gender: girls, event: "High Jump", age: "13 & 14", name: "Jenelle Smith", city: "Lansing", mark: "4' 8\"", year: 2005, set: 2005, note: "Co-held: Carolyn Morgan 4' 8\" (2014)." }
+  - { gender: girls, event: "High Jump", age: "7 & 8", name: "Mia Judd", city: "Grand Ledge", mark: "3' 4\"", year: 2012, set: 2012, history: [ { name: "Olivia Brown", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Bailey Powell", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Mandi Gordon", mark: "3' 4\"", year: 2018, note: "co-holder" }, { name: "Alexandra Steitz", mark: "3' 4\"", year: 2011, note: "co-holder" } ] }
+  - { gender: girls, event: "High Jump", age: "9 & 10", name: "Presious Robinson", city: "Lansing", mark: "3' 10\"", year: 2012, set: 2012, history: [ { name: "Izzy Hartzell", mark: "3' 10\"", year: 2018, note: "co-holder" } ] }
+  - { gender: girls, event: "High Jump", age: "11 & 12", name: "Amaya Ayers", city: "Laingsburg", mark: "4' 6\"", year: 2004, set: 2004, history: [ { name: "Tori Schiller", mark: "4' 6\"", year: 2005, note: "co-holder" } ] }
+  - { gender: girls, event: "High Jump", age: "13 & 14", name: "Jenelle Smith", city: "Lansing", mark: "4' 8\"", year: 2005, set: 2005, history: [ { name: "Carolyn Morgan", mark: "4' 8\"", year: 2014, note: "co-holder" } ] }
   - { gender: girls, event: "High Jump", age: "15 & 16", name: "Teaghan Thomas", mark: "5' 3\"", year: 2015, set: 2015 }
   - { gender: girls, event: "High Jump", age: "17 & 18", name: "Brenda Smith", city: "Carson City", mark: "5' 2\"", year: 1981, set: 1981 }
   - { gender: girls, event: "High Jump", age: "19 - 29", name: "Kathy Powers", city: "Reading", mark: "5' 3\"", year: 1977, set: 1977 }
   - { gender: girls, event: "High Jump", age: "30 - 39", name: "Sue Mellentine", city: "Mason", mark: "4' 6\"", year: 1989, set: 1989 }
   - { gender: girls, event: "High Jump", age: "40 - 49", name: "Cassey Brown", mark: "4' 0\"", year: 2016, set: 2016 }
-  - { gender: girls, event: "High Jump", age: "50+", name: "Sylvia Ray", mark: "3' 6\"", year: 2018, set: 2018 }
+  - { gender: girls, event: "High Jump", age: "50 - 59", name: "Sylvia Ray", mark: "3' 6\"", year: 2018, set: 2018 }
 
   # --- Girls Pole Vault ---
   - { gender: girls, event: "Pole Vault", age: "11 & 12", name: "Emma Springer", mark: "7' 6\"", year: 2018, set: 2018 }
-  - { gender: girls, event: "Pole Vault", age: "13 & 14", name: "Amanda Trouten", mark: "9' 6\"", year: 2006, set: 2006, note: "Co-held: Alyssa German 9' 6\" (2015)." }
-  - { gender: girls, event: "Pole Vault", age: "15 & 16", name: "Katie Blue", mark: "11' 0\"", year: 2023, set: 2023, note: "New record 2023 (prev. 10' 0\": Brianna Flowers 2010, Jackie Clark 2004)." }
+  - { gender: girls, event: "Pole Vault", age: "13 & 14", name: "Amanda Trouten", mark: "9' 6\"", year: 2006, set: 2006, history: [ { name: "Alyssa German", mark: "9' 6\"", year: 2015, note: "co-holder" } ] }
+  - { gender: girls, event: "Pole Vault", age: "15 & 16", name: "Katie Blue", mark: "11' 0\"", year: 2023, set: 2023, history: [ { name: "Brianna Flowers", mark: "10' 0\"", year: 2010 }, { name: "Jackie Clark", mark: "10' 0\"", year: 2004 } ] }
   - { gender: girls, event: "Pole Vault", age: "17 & 18", name: "Carly Schiffer", city: "Ovid", mark: "11' 0\"", year: 2006, set: 2006 }
   - { gender: girls, event: "Pole Vault", age: "19 - 29", name: "Shelia McKenley", mark: "11' 6\"", year: 2017, set: 2017 }
-  - { gender: girls, event: "Pole Vault", age: "50+", name: "Cassy Brown", mark: "7' 6\"", year: 2023, set: 2023, note: "New age-group record (2023)." }
+  - { gender: girls, event: "Pole Vault", age: "50 - 59", name: "Cassy Brown", mark: "7' 6\"", year: 2023, set: 2023, note: "New age-group record (2023)." }
 
   # --- Girls 55 Hurdles ---
   - { gender: girls, event: "55 Hurdles", age: "9 & 10", name: "Marie Schafer", city: "Williamston", mark: "12.99", year: 2015, set: 2015 }
@@ -343,7 +348,7 @@ records:
 
   # --- Girls 100 ---
   - { gender: girls, event: "100", age: "4 & under", name: "Veronica Holingsworth", city: "Lansing", mark: "21.18", year: 2013, set: 2013 }
-  - { gender: girls, event: "100", age: "5 & 6", name: "Sasha Kent", mark: "16.02", year: 2022, set: 2022, note: "New record 2022 (prev. Bethany Harrison 17.1, 2010)." }
+  - { gender: girls, event: "100", age: "5 & 6", name: "Sasha Kent", mark: "16.02", year: 2022, set: 2022, history: [ { name: "Bethany Harrison", mark: "17.1", year: 2010 } ] }
   - { gender: girls, event: "100", age: "7 & 8", name: "Morgan Hetherington", city: "Grand Ledge", mark: "15.1", year: 2010, set: 2010, note: "FLAG: 2022 post announced Raquel Pruitt 15.11 as a record, but that is slower than this standing 15.1 — verify against master PDF." }
   - { gender: girls, event: "100", age: "9 & 10", name: "Gabrielle Pruitt", mark: "13.56", year: 2018, set: 2018 }
   - { gender: girls, event: "100", age: "11 & 12", name: "Myricl Nash", city: "Lansing", mark: "12.96", year: 2017, set: 2017 }
@@ -353,7 +358,7 @@ records:
   - { gender: girls, event: "100", age: "19 - 29", name: "Katrina Jones", city: "Lansing", mark: "12.7", year: 1991, set: 1991 }
   - { gender: girls, event: "100", age: "30 - 39", name: "Janice Fowler", city: "Ann Arbor", mark: "12.6", year: 1983, set: 1983 }
   - { gender: girls, event: "100", age: "40 - 49", name: "Kathy Defever", city: "Ashley", mark: "15.22", year: 2004, set: 2004 }
-  - { gender: girls, event: "100", age: "50+", name: "Ruth Thelen", city: "St Johns", mark: "16.3", year: 2004, set: 2004 }
+  - { gender: girls, event: "100", age: "50 - 59", name: "Ruth Thelen", city: "St Johns", mark: "16.3", year: 2004, set: 2004 }
 
   # --- Girls 200 ---
   - { gender: girls, event: "200", age: "4 & under", name: "Zemirah Trainor", mark: "46.6", year: 2018, set: 2018 }
@@ -365,7 +370,7 @@ records:
   - { gender: girls, event: "200", age: "15 & 16", name: "Prisailla Trainor", city: "Lansing", mark: "25.4", year: 2017, set: 2017 }
   - { gender: girls, event: "200", age: "17 & 18", name: "Katla Gibbs", city: "Lansing", mark: "25.59", year: 2017, set: 2017 }
   - { gender: girls, event: "200", age: "19 - 29", name: "Judi Brown", city: "East Lansing", mark: "25.5", year: 1980, set: 1980 }
-  - { gender: girls, event: "200", age: "30 - 39", name: "Stephenie Manning", mark: "28.60", year: 2023, set: 2023, note: "New record 2023 (prev. Carol Asam 31.0, 1992)." }
+  - { gender: girls, event: "200", age: "30 - 39", name: "Stephenie Manning", mark: "28.60", year: 2023, set: 2023, history: [ { name: "Carol Asam", mark: "31.0", year: 1992 } ] }
   - { gender: girls, event: "200", age: "40 - 49", name: "Faith Cullens Nobis", mark: "38.19", year: 2023, set: 2023, note: "New age-group record (2023)." }
 
   # --- Girls 400 ---
@@ -380,11 +385,11 @@ records:
   - { gender: girls, event: "400", age: "19 - 29", name: "Judi Brown", city: "East Lansing", mark: "56.2", year: 1980, set: 1980 }
   - { gender: girls, event: "400", age: "30 - 39", name: "Janice Fowler", city: "Ann Arbor", mark: "60.5", year: 1983, set: 1983 }
   - { gender: girls, event: "400", age: "40 - 49", name: "Marie Sluiter", city: "Belding", mark: "1:47.2", year: 2015, set: 2015 }
-  - { gender: girls, event: "400", age: "50+", name: "Ruth Thelen", city: "St Johns", mark: "1:33.7", year: 2009, set: 2009 }
+  - { gender: girls, event: "400", age: "50 - 59", name: "Ruth Thelen", city: "St Johns", mark: "1:33.7", year: 2009, set: 2009 }
 
   # --- Girls 800 ---
   - { gender: girls, event: "800", age: "5 & 6", name: "Selah Edwards", mark: "3:30.9", year: 2018, set: 2018 }
-  - { gender: girls, event: "800", age: "7 & 8", name: "Brielle Ardister", mark: "3:10.56", year: 2022, set: 2022, note: "New record 2022 (prev. Gabrielle Ferguson 3:11.2, 2015)." }
+  - { gender: girls, event: "800", age: "7 & 8", name: "Brielle Ardister", mark: "3:10.56", year: 2022, set: 2022, history: [ { name: "Gabrielle Ferguson", mark: "3:11.2", year: 2015 } ] }
   - { gender: girls, event: "800", age: "9 & 10", name: "Kaylie Soto", mark: "2:45.6", year: 2015, set: 2015 }
   - { gender: girls, event: "800", age: "11 & 12", name: "Bria Telemaque", mark: "2:22.7", year: 2013, set: 2013 }
   - { gender: girls, event: "800", age: "13 & 14", name: "Libby Munderloh", city: "St Louis", mark: "2:25.7", year: 2018, set: 2018 }
@@ -393,20 +398,20 @@ records:
   - { gender: girls, event: "800", age: "19 - 29", name: "Dana Ai-Nasrallah", city: "Iraq", mark: "2:18.0", year: 2012, set: 2012 }
   - { gender: girls, event: "800", age: "30 - 39", name: "Nicci Lycan", city: "Kalamazoo", mark: "2:31.1", year: 2004, set: 2004 }
   - { gender: girls, event: "800", age: "40 - 49", name: "Sharon Becker", city: "Fowler", mark: "2:52.2", year: 2014, set: 2014 }
-  - { gender: girls, event: "800", age: "50+", name: "Deb Feltz", city: "St Johns", mark: "3:05.0", year: 2009, set: 2009 }
+  - { gender: girls, event: "800", age: "50 - 59", name: "Deb Feltz", city: "St Johns", mark: "3:05.0", year: 2009, set: 2009 }
 
   # --- Girls 1600 ---
   - { gender: girls, event: "1600", age: "5 & 6", name: "Nicole Schafer", city: "Williamston", mark: "8:00.4", year: 2013, set: 2013 }
   - { gender: girls, event: "1600", age: "7 & 8", name: "Ella Hufnagel", city: "Fowler", mark: "6:50.1", year: 2014, set: 2014 }
-  - { gender: girls, event: "1600", age: "9 & 10", name: "Natalle Clutten", mark: "6:25.13", year: 2023, set: 2023, note: "New record 2023 (prev. Eliana Chuney 6:35.0, 2012)." }
+  - { gender: girls, event: "1600", age: "9 & 10", name: "Natalle Clutten", mark: "6:25.13", year: 2023, set: 2023, history: [ { name: "Eliana Chuney", mark: "6:35.0", year: 2012 } ] }
   - { gender: girls, event: "1600", age: "11 & 12", name: "Bria Telemaque", mark: "5:36.3", year: 2013, set: 2013 }
   - { gender: girls, event: "1600", age: "13 & 14", name: "Libby Munderloh", city: "St Louis", mark: "5:19.5", year: 2017, set: 2017 }
-  - { gender: girls, event: "1600", age: "15 & 16", name: "Whitney Werner", mark: "5:18.14", year: 2022, set: 2022, note: "New record 2022 (prev. Seana Arnold 5:21.6, 1984)." }
+  - { gender: girls, event: "1600", age: "15 & 16", name: "Whitney Werner", mark: "5:18.14", year: 2022, set: 2022, history: [ { name: "Seana Arnold", mark: "5:21.6", year: 1984 } ] }
   - { gender: girls, event: "1600", age: "17 & 18", name: "Emily Langenberg", city: "Grand Ledge", mark: "5:16.0", year: 2006, set: 2006 }
   - { gender: girls, event: "1600", age: "19 - 29", name: "Emily Langenberg", city: "Grand Ledge", mark: "5:22.0", year: 2008, set: 2008 }
   - { gender: girls, event: "1600", age: "30 - 39", name: "Sharon Becker", city: "Fowler", mark: "5:35.9", year: 2005, set: 2005 }
   - { gender: girls, event: "1600", age: "40 - 49", name: "Sharon Becker", city: "Fowler", mark: "6:10.0", year: 2014, set: 2014 }
-  - { gender: girls, event: "1600", age: "50+", name: "Ruth Thelen", city: "St Johns", mark: "7:12.2", year: 2005, set: 2005 }
+  - { gender: girls, event: "1600", age: "50 - 59", name: "Ruth Thelen", city: "St Johns", mark: "7:12.2", year: 2005, set: 2005 }
 
   # --- Girls 3200 ---
   - { gender: girls, event: "3200", age: "7 & 8", name: "Nicole Schafer", city: "Williamston", mark: "16:23.1", year: 2015, set: 2015 }
@@ -423,11 +428,11 @@ records:
   - { gender: girls, event: "5000", age: "7 & 8", name: "Ellie Thronburn", mark: "24:23.1", year: 2014, set: 2014 }
   - { gender: girls, event: "5000", age: "9 & 10", name: "Ariel Warner", mark: "21:22.0", year: 2016, set: 2016 }
   - { gender: girls, event: "5000", age: "11 & 12", name: "Amelia Gouin", city: "Shepard", mark: "21:39.7", year: 2015, set: 2015 }
-  - { gender: girls, event: "5000", age: "13 & 14", name: "Libby Munderloh", city: "St Louis", mark: "18:59.9", year: 2018, set: 2018 }
-  - { gender: girls, event: "5000", age: "15 & 16", name: "Kristin Sall", city: "Ann Arbor", mark: "22:27.2", year: 1983, set: 1983 }
+  - { gender: girls, event: "5000", age: "13 & 14", name: "Ana Schafer", mark: "18:18.6", year: 2023, set: 2023, history: [ { name: "Libby Munderloh", mark: "18:59.9", year: 2018 } ] }
+  - { gender: girls, event: "5000", age: "15 & 16", name: "Avery Silas", mark: "20:43.0", year: 2025, set: 2025, history: [ { name: "Kristin Sall", mark: "22:27.2", year: 1983 } ] }
   - { gender: girls, event: "5000", age: "17 & 18", name: "Lidia Clarizo", mark: "18:52.3", year: 2017, set: 2017 }
   - { gender: girls, event: "5000", age: "19 - 29", name: "Emily Langenburg", city: "Grand Ledge", mark: "19:14.4", year: 2016, set: 2016 }
-  - { gender: girls, event: "5000", age: "30 - 39", name: "Judy McPherson", city: "Grand Ledge", mark: "23:37.0", year: 1981, set: 1981 }
+  - { gender: girls, event: "5000", age: "30 - 39", name: "Stefane Clutten", mark: "20:12.1", year: 2023, set: 2023, history: [ { name: "Judy McPherson", mark: "23:37.0", year: 1981 } ] }
   - { gender: girls, event: "5000", age: "40 - 49", name: "Miehaline Elder", city: "Grand Ledge", mark: "22:48.2", year: 2014, set: 2014 }
 
   # --- Girls 4x100 Relay ---
@@ -437,7 +442,7 @@ records:
   - { gender: girls, event: "4x100 Relay", age: "13 & 14", members: "C. Rankin, E. Tooker, M. Davis, L. Wheeler", mark: "54.47", year: 2018, set: 2018 }
   - { gender: girls, event: "4x100 Relay", age: "15 & 16", members: "L. Coates, N. Cannon, N. Long, T. Daniel", mark: "58.44", year: 2018, set: 2018 }
   - { gender: girls, event: "4x100 Relay", age: "30 - 39", mark: "1:13.86", year: 2017, set: 2017 }
-  - { gender: girls, event: "4x100 Relay", age: "50+", mark: "62.00", year: 2004, set: 2004 }
+  - { gender: girls, event: "4x100 Relay", age: "50 - 59", mark: "62.00", year: 2004, set: 2004 }
 
   # --- Girls 4x400 Relay ---
   - { gender: girls, event: "4x400 Relay", age: "7 & 8", mark: "7:30.0", year: 2012, set: 2012 }

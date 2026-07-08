@@ -459,6 +459,22 @@
 
     let activeGender = 'boys';
 
+    function collapseRow(row) {
+      const btn = row.querySelector('.records-disclosure');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      const detail = row.nextElementSibling;
+      if (detail && detail.classList.contains('records-history')) detail.hidden = true;
+    }
+
+    function toggleRow(row) {
+      const btn = row.querySelector('.records-disclosure');
+      const detail = row.nextElementSibling;
+      if (!btn || !detail || !detail.classList.contains('records-history')) return;
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      detail.hidden = open;
+    }
+
     function applyFilter() {
       const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
       let anyVisible = false;
@@ -473,6 +489,14 @@
           block.querySelectorAll('.records-row').forEach(function (row) {
             const match = !q || (row.getAttribute('data-search') || '').indexOf(q) !== -1;
             row.hidden = !match;
+            const detail = row.nextElementSibling;
+            if (detail && detail.classList.contains('records-history')) {
+              // keep the history row in step with its record row; collapse when hidden
+              if (!match) collapseRow(row);
+              else if (row.querySelector('.records-disclosure').getAttribute('aria-expanded') !== 'true') {
+                detail.hidden = true;
+              }
+            }
             if (match) blockVisible++;
           });
           block.hidden = blockVisible === 0;
@@ -482,6 +506,16 @@
 
       if (noResults) noResults.hidden = anyVisible;
     }
+
+    panels.forEach(function (panel) {
+      panel.addEventListener('click', function (e) {
+        const row = e.target.closest('.records-row.has-history');
+        if (!row || !panel.contains(row)) return;
+        // ignore clicks on the note/flag markers so their tooltips still work
+        if (e.target.closest('.records-marker')) return;
+        toggleRow(row);
+      });
+    });
 
     if (toggle) {
       toggle.addEventListener('click', function (e) {

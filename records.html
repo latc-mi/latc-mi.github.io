@@ -43,6 +43,7 @@ breadcrumb: "Records"
 
     <div class="records-legend">
       <span class="records-legend__item"><span class="records-swatch records-swatch--recent"></span> Set recently (2022–2023)</span>
+      <span class="records-legend__item"><span class="records-disclosure__chevron records-legend__chevron" aria-hidden="true">▸</span> Click a row to see previous holders</span>
       <span class="records-legend__item"><span class="records-marker">⚑</span> Needs reconciliation — hover for detail</span>
       <span class="records-legend__item"><span class="records-marker">*</span> Note (tie / co-holder) — hover for detail</span>
     </div>
@@ -74,8 +75,11 @@ breadcrumb: "Records"
                       {% assign m = rows | where: "age", age | first %}
                       {% if m %}
                         {% if m.name %}{% assign who = m.name %}{% else %}{% assign who = m.members %}{% endif %}
-                        {% capture search_blob %}{{ ev }} {{ age }} {{ who }} {{ m.city }} {{ m.mark }}{% endcapture %}
-                        <tr class="records-row{% if m.set >= 2022 %} is-recent{% endif %}"
+                        {% if m.history and m.history.size > 0 %}{% assign has_hist = true %}{% else %}{% assign has_hist = false %}{% endif %}
+                        {% assign row_id = g | append: "-" | append: ev_slug | append: "-" | append: age | slugify %}
+                        {% capture hist_blob %}{% if has_hist %}{% for h in m.history %} {{ h.name }} {{ h.members }} {{ h.mark }}{% endfor %}{% endif %}{% endcapture %}
+                        {% capture search_blob %}{{ ev }} {{ age }} {{ who }} {{ m.city }} {{ m.mark }}{{ hist_blob }}{% endcapture %}
+                        <tr class="records-row{% if m.set >= 2022 %} is-recent{% endif %}{% if has_hist %} has-history{% endif %}"
                             data-search="{{ search_blob | escape | downcase | strip }}">
                           <td class="records-table__age">{{ age }}</td>
                           <td class="records-table__mark">
@@ -85,9 +89,35 @@ breadcrumb: "Records"
                             <span class="records-athlete">{{ who }}</span>{% if m.city %} <span class="records-city">{{ m.city }}</span>{% endif %}{% if m.note %}{% unless m.note contains "FLAG" %} <span class="records-marker" tabindex="0" title="{{ m.note | escape }}">*</span>{% endunless %}{% endif %}
                           </td>
                           <td class="records-table__year">
-                            {{ m.year }}{% if m.set >= 2022 %} <span class="records-new-badge">NEW</span>{% endif %}
+                            {{ m.year }}{% if m.set >= 2022 %} <span class="records-new-badge">NEW</span>{% endif %}{% if has_hist %} <button type="button" class="records-disclosure" aria-expanded="false" aria-controls="{{ row_id }}-hist"><span class="records-disclosure__chevron" aria-hidden="true">▸</span><span class="records-disclosure__label">{{ m.history.size | plus: 1 }} holders</span></button>{% endif %}
                           </td>
                         </tr>
+                        {% if has_hist %}
+                        <tr class="records-history" id="{{ row_id }}-hist" hidden>
+                          <td colspan="4">
+                            <div class="records-history__inner">
+                              <p class="records-history__heading">Record history — {{ glabel }} {{ age }} · {{ ev }}</p>
+                              <ol class="records-timeline">
+                                <li class="records-timeline__item is-current">
+                                  <span class="records-timeline__year">{{ m.year }}</span>
+                                  <span class="records-timeline__who"><span class="records-athlete">{{ who }}</span>{% if m.city %} <span class="records-city">{{ m.city }}</span>{% endif %}</span>
+                                  <span class="records-timeline__mark">{{ m.mark }}</span>
+                                  <span class="records-timeline__tag records-timeline__tag--current">current</span>
+                                </li>
+                                {% for h in m.history %}
+                                  {% if h.name %}{% assign hwho = h.name %}{% elsif h.members %}{% assign hwho = h.members %}{% else %}{% assign hwho = "Unnamed" %}{% endif %}
+                                  <li class="records-timeline__item">
+                                    <span class="records-timeline__year">{% if h.year %}{{ h.year }}{% else %}—{% endif %}</span>
+                                    <span class="records-timeline__who"><span class="records-athlete">{{ hwho }}</span>{% if h.city %} <span class="records-city">{{ h.city }}</span>{% endif %}</span>
+                                    <span class="records-timeline__mark">{% if h.mark %}{{ h.mark }}{% endif %}</span>
+                                    {% if h.note %}<span class="records-timeline__tag">{{ h.note }}</span>{% endif %}
+                                  </li>
+                                {% endfor %}
+                              </ol>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endif %}
                       {% endif %}
                     {% endfor %}
                   </tbody>
@@ -103,9 +133,9 @@ breadcrumb: "Records"
       <p><strong>About these records</strong></p>
       <ul>
         <li>Compiled from the <strong>1973–2018 master records PDF</strong> plus championship updates from <strong>2022</strong> (47th annual) and <strong>2023</strong> (48th annual). Records set in 2022–2023 are highlighted.</li>
-        <li><strong>Not yet included:</strong> 2019 (46th), and 2024 (49th, "33 records broken") and 2025 (50th) — those results were only shared as photos / an emailed PDF. Request the current master list from <a href="mailto:crowe387@gmail.com">crowe387@gmail.com</a> to fill these in.</li>
+        <li><strong>Not yet included:</strong> 2019 (46th), and 2024 (49th, "33 records broken") and 2025 (50th) — those results were only shared as photos / an emailed PDF.
         <li>A few <span class="records-marker">⚑</span> marks are flagged where a meet sheet highlighted a record that did not surpass the documented standard — kept the documented mark pending reconciliation.</li>
-        <li>Questions or corrections? Contact <a href="{{ site.data.season.meet_web_link }}">Grand Ledge Summer Track on Facebook</a> or email the address above.</li>
+        <li>Questions or corrections? Contact <a href="{{ site.data.season.meet_web_link }}">Grand Ledge Summer Track on Facebook</a>.</li>
       </ul>
     </div>
 
