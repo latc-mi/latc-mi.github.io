@@ -1,0 +1,113 @@
+---
+layout: default
+title: "Championship Records"
+description: "All-time Grand Ledge Summer Track & Field championship records by event and age group, for boys/men and girls/women."
+permalink: /records/
+breadcrumb: "Records"
+---
+
+{% assign recs = site.data.records.records %}
+{% assign boys_count = recs | where: "gender", "boys" | size %}
+{% assign girls_count = recs | where: "gender", "girls" | size %}
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <span>›</span>
+      Records
+    </nav>
+    <h1>Championship <span class="accent">Records</span></h1>
+    <p>All-time Grand Ledge Summer Recreation Track &amp; Field records — only the season's championship meet is record-eligible.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="records-controls">
+      <div class="records-toggle" role="tablist" aria-label="Choose division">
+        <button type="button" class="records-toggle__btn is-active" data-gender="boys" role="tab" aria-selected="true">
+          Boys / Men <span class="records-toggle__count">{{ boys_count }}</span>
+        </button>
+        <button type="button" class="records-toggle__btn" data-gender="girls" role="tab" aria-selected="false">
+          Girls / Women <span class="records-toggle__count">{{ girls_count }}</span>
+        </button>
+      </div>
+
+      <div class="records-search">
+        <input type="search" id="records-search-input" class="records-search__input"
+               placeholder="Search athlete, event, or age…" aria-label="Search records">
+      </div>
+    </div>
+
+    <div class="records-legend">
+      <span class="records-legend__item"><span class="records-swatch records-swatch--recent"></span> Set recently (2022–2023)</span>
+      <span class="records-legend__item"><span class="records-marker">⚑</span> Needs reconciliation — hover for detail</span>
+      <span class="records-legend__item"><span class="records-marker">*</span> Note (tie / co-holder) — hover for detail</span>
+    </div>
+
+    <p class="records-empty" id="records-no-results" hidden>No records match your search.</p>
+
+    {% assign genders = "boys,girls" | split: "," %}
+    {% for g in genders %}
+      {% if g == "boys" %}{% assign glabel = "Boys / Men" %}{% else %}{% assign glabel = "Girls / Women" %}{% endif %}
+      <div class="records-panel" data-gender="{{ g }}"{% if g != "boys" %} hidden{% endif %}>
+        {% for ev in site.data.records.event_order %}
+          {% assign rows = recs | where: "gender", g | where: "event", ev %}
+          {% if rows.size > 0 %}
+            {% assign ev_slug = ev | slugify %}
+            <div class="records-event" data-event="{{ ev }}" id="rec-{{ g }}-{{ ev_slug }}">
+              <h2 class="records-event__title">{{ ev }}</h2>
+              <div class="records-scroll">
+                <table class="records-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="records-table__age">Age Group</th>
+                      <th scope="col" class="records-table__mark">Record</th>
+                      <th scope="col">Athlete</th>
+                      <th scope="col" class="records-table__year">Year</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for age in site.data.records.age_order %}
+                      {% assign m = rows | where: "age", age | first %}
+                      {% if m %}
+                        {% if m.name %}{% assign who = m.name %}{% else %}{% assign who = m.members %}{% endif %}
+                        {% capture search_blob %}{{ ev }} {{ age }} {{ who }} {{ m.city }} {{ m.mark }}{% endcapture %}
+                        <tr class="records-row{% if m.set >= 2022 %} is-recent{% endif %}"
+                            data-search="{{ search_blob | escape | downcase | strip }}">
+                          <td class="records-table__age">{{ age }}</td>
+                          <td class="records-table__mark">
+                            {{ m.mark }}{% if m.note contains "FLAG" %} <span class="records-marker records-marker--flag" tabindex="0" title="{{ m.note | escape }}">⚑</span>{% endif %}
+                          </td>
+                          <td>
+                            <span class="records-athlete">{{ who }}</span>{% if m.city %} <span class="records-city">{{ m.city }}</span>{% endif %}{% if m.note %}{% unless m.note contains "FLAG" %} <span class="records-marker" tabindex="0" title="{{ m.note | escape }}">*</span>{% endunless %}{% endif %}
+                          </td>
+                          <td class="records-table__year">
+                            {{ m.year }}{% if m.set >= 2022 %} <span class="records-new-badge">NEW</span>{% endif %}
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <div class="matrix-notes">
+      <p><strong>About these records</strong></p>
+      <ul>
+        <li>Compiled from the <strong>1973–2018 master records PDF</strong> plus championship updates from <strong>2022</strong> (47th annual) and <strong>2023</strong> (48th annual). Records set in 2022–2023 are highlighted.</li>
+        <li><strong>Not yet included:</strong> 2019 (46th), and 2024 (49th, "33 records broken") and 2025 (50th) — those results were only shared as photos / an emailed PDF. Request the current master list from <a href="mailto:crowe387@gmail.com">crowe387@gmail.com</a> to fill these in.</li>
+        <li>A few <span class="records-marker">⚑</span> marks are flagged where a meet sheet highlighted a record that did not surpass the documented standard — kept the documented mark pending reconciliation.</li>
+        <li>Questions or corrections? Contact <a href="{{ site.data.season.meet_web_link }}">Grand Ledge Summer Track on Facebook</a> or email the address above.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>

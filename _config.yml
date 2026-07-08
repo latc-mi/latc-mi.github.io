@@ -25,6 +25,8 @@ navigation:
     url: "/season/"
   - title: "Meet Events"
     url: "/events/"
+  - title: "Records"
+    url: "/records/"
   - title: "Training Plans"
     url: "/training/"
 

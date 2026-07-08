@@ -447,9 +447,67 @@
     });
   }
 
+  // ─── Records Page ───────────────────────────────────────────────────────
+  // Gender toggle (Boys/Girls) plus live text search across the visible table.
+
+  function setupRecords() {
+    const toggle = document.querySelector('.records-toggle');
+    const panels = Array.prototype.slice.call(document.querySelectorAll('.records-panel'));
+    const searchInput = document.getElementById('records-search-input');
+    const noResults = document.getElementById('records-no-results');
+    if (!panels.length) return;
+
+    let activeGender = 'boys';
+
+    function applyFilter() {
+      const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      let anyVisible = false;
+
+      panels.forEach(function (panel) {
+        const isActive = panel.getAttribute('data-gender') === activeGender;
+        panel.hidden = !isActive;
+        if (!isActive) return;
+
+        panel.querySelectorAll('.records-event').forEach(function (block) {
+          let blockVisible = 0;
+          block.querySelectorAll('.records-row').forEach(function (row) {
+            const match = !q || (row.getAttribute('data-search') || '').indexOf(q) !== -1;
+            row.hidden = !match;
+            if (match) blockVisible++;
+          });
+          block.hidden = blockVisible === 0;
+          if (blockVisible > 0) anyVisible = true;
+        });
+      });
+
+      if (noResults) noResults.hidden = anyVisible;
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', function (e) {
+        const btn = e.target.closest('.records-toggle__btn');
+        if (!btn) return;
+        activeGender = btn.getAttribute('data-gender');
+        toggle.querySelectorAll('.records-toggle__btn').forEach(function (b) {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        applyFilter();
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilter);
+    }
+
+    applyFilter();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     setupNav();
     setupQrShare();
+    setupRecords();
     if (document.getElementById('training-list-view') || document.getElementById('training-cal-view')) {
       init();
     }
