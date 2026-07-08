@@ -52,7 +52,7 @@ breadcrumb: "Events"
           {% if event.group == group.key %}
           <tr>
             <th scope="row" class="event-matrix__event">
-              {{ event.name }}{% if event.note %} <span class="event-matrix__note">{{ event.note }}</span>{% endif %}
+              {{ event.name }}{% if event.note %}<br><span class="event-matrix__note">{{ event.note }}</span>{% endif %}
             </th>
             {% for meet in site.data.event_matrix.meets %}
             <td class="event-matrix__cell">
